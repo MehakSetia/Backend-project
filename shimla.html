@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimla Travel Guide</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            line-height: 1.6;
+            background-image: url('shimla_img/shimla back (1).jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: 25%; /* 1/4 of the page */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        main {
+            margin: 20px 0;
+        }
+
+        b {
+            color: white;
+        }
+
+        #places-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            justify-items: center;
+        }
+
+        .place-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 4px 8px 8px brown;
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .place-card:hover {
+            transform: scale(1.05);
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .place-card h3 {
+            margin: 15px 0 10px;
+            font-size: 1.5rem;
+            padding: 0 15px;
+        }
+
+        .place-card p {
+            font-size: 1rem;
+            color: #333;
+            padding: 0 15px;
+        }
+
+        .place-card ul {
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+
+        button {
+            display: block;
+            width: calc(100% - 30px);
+            margin: 10px 15px;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d62c1a;
+        }
+
+        /* Wishlist and cart sections */
+        #wishlist, #cart {
+            list-style: none;
+            padding: 0;
+        }
+
+        #wishlist li, #cart li {
+            background-color: lightgray;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        /* Packages section */
+        #packages-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .package {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: lightgray;
+        }
+
+        .package h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .package p {
+            margin: 5px 0;
+        }
+
+        .package .price {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>Shimla Travel Guide</h1>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown()">Pages</button>
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="homepg.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="indiaov.html">India Overview</a>
+                    <a href="Goa.html">Goa</a>
+                    <a href="mountain.html">Mountains</a>
+                    <a href="rameshwaram.html">Rameshwaram</a>
+                    <a href="beaches.html">Beaches</a>
+                    <a href="dawarika.html">Dawarika</a>
+                    <a href="shimla.html">Shimla</a>
+                    <a href="monuments.html">Monuments</a>
+                    <a href="jaipur.html">Jaipur</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="places">
+            <h2><b>Famous Places to Visit</b></h2>
+            <br />
+            <div id="places-list">
+                
+            </div>
+        </section>
+
+        
+        <br />
+        <h2><b>Your Wishlist</b></h2>
+        <ul id="wishlist">
+            <li>No items in wishlist yet.</li>
+        </ul>
+
+        <!-- Cart Section -->
+        <h2><b>Your Cart</b></h2>
+        <ul id="cart">
+            <li>No items in cart yet.</li>
+        </ul>
+
+        <!-- More Packages Button -->
+        <br />
+        <div id="pack" style="width: 200px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: #e74c3c;margin-left: 45%;border-radius: 5px;">
+            <button onclick="togglePackages()">More Packages</button>
+        </div>
+        
+        <!-- Packages Section -->
+        <div id="packages-section">
+            <div class="package">
+                <h3>Small Package</h3>
+                <p>Details: 2 nights, 3 days with a stay at a 3-star hotel. Includes sightseeing and breakfast.</p>
+                <p class="price">Price: ₹5,000</p>
+                <div id="btn" style="width: 350px;height: 60px;display: flex;margin-left: 40%;">
+                <button onclick="addToWishlist('Small Package')">Add to Wishlist</button>
+                <button onclick="addToCart('Small Package')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="package">
+                <h3>Medium Package</h3>
+                <p>Details: 4 nights, 5 days with a stay at a 4-star hotel. Includes sightseeing, breakfast, and dinner.</p>
+                <p class="price">Price: ₹10,000</p>
+                <div id="btn" style="width: 350px;height: 60px;display: flex;margin-left: 40%;">
+                <button onclick="addToWishlist('Medium Package')">Add to Wishlist</button>
+                <button onclick="addToCart('Medium Package')">Add to Cart</button>
+                </div>
+            </div >
+
+            <div class="package">
+                <h3>Deluxe Package</h3>
+                <p>Details: 6 nights, 7 days with a stay at a 5-star hotel. Includes all meals, sightseeing, and airport transfers.</p>
+                <p class="price">Price: ₹20,000</p>
+                <div id="btn" style="width: 350px;height: 60px;display: flex;margin-left: 40%;">
+                <button onclick="addToWishlist('Deluxe Package')">Add to Wishlist</button>
+                <button onclick="addToCart('Deluxe Package')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        
+        const places = [
+        {
+        name: "The Ridge",
+        image: "shimla_img/ridge.jpeg",
+        description: "The Ridge is Shimla's most famous open space, offering panoramic views of the surrounding mountains.",
+        features: ["Open 24 hours", "Entry fee: Free", "Best for: Scenic views and leisurely walks"],
+        rating: 4.7,
+        price: 0
+    },
+    {
+        name: "Jakhoo Temple",
+        image: "shimla_img/jakhoo temple.jpeg",
+        description: "Situated atop Jakhoo Hill, the temple is dedicated to Lord Hanuman and offers breathtaking views of the city.",
+        features: ["Open from 7 AM to 8 PM", "Entry fee: Free", "Highlight: 108-feet tall statue of Lord Hanuman"],
+        rating: 4.8,
+        price: 0
+    },
+    {
+        name: "Mall Road",
+        image: "shimla_img/mall road.jpeg",
+        description: "A bustling street lined with shops, restaurants, and cafes, ideal for shopping and casual stroll.Enjoy the local delicacies at various eateries.",
+        features: ["Open 24 hours", "Entry fee: Free", "Best for: Shopping and dining"],
+        rating: 4.5,
+        price: 0
+    },
+    {
+        name: "Kufri",
+        image: "shimla_img/kufri.jpeg",
+        description: "A small hill station near Shimla, known for its skiing, hiking trails, and scenic beauty.",
+        features: ["Open all day", "Entry fee: Free", "Best for: Adventure sports and nature lovers"],
+        rating: 4.6,
+        price: 0
+    }
+        ];
+
+        let wishlist = [];
+        let cart = [];
+
+        function togglePackages() {
+            const packagesSection = document.getElementById('packages-section');
+            if (packagesSection.style.display === 'none' || packagesSection.style.display === '') {
+                packagesSection.style.display = 'block';
+            } else {
+                packagesSection.style.display = 'none';
+            }
+        }
+
+        function addToWishlist(item) {
+            if (!wishlist.includes(item)) {
+                wishlist.push(item);
+                updateWishlist();
+            }
+        }
+
+        function addToCart(item) {
+            if (!cart.includes(item)) {
+                cart.push(item);
+                updateCart();
+            }
+        }
+
+        function updateWishlist() {
+            const wishlistSection = document.getElementById('wishlist');
+            wishlistSection.innerHTML = '';
+            wishlist.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                wishlistSection.appendChild(listItem);
+            });
+            document.getElementById('wishlist-count').textContent = wishlist.length;
+        }
+
+        function updateCart() {
+            const cartSection = document.getElementById('cart');
+            cartSection.innerHTML = '';
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                cartSection.appendChild(listItem);
+            });
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        // Load places dynamically
+        window.onload = () => {
+            const placesList = document.getElementById('places-list');
+            places.forEach(place => {
+                const placeCard = document.createElement('div');
+                placeCard.classList.add('place-card');
+
+                const img = document.createElement('img');
+                img.src = place.image;
+                placeCard.appendChild(img);
+
+                const title = document.createElement('h3');
+                title.textContent = place.name;
+                placeCard.appendChild(title);
+
+                const description = document.createElement('p');
+                description.textContent = place.description;
+                placeCard.appendChild(description);
+
+                const featuresList = document.createElement('ul');
+                place.features.forEach(feature => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = feature;
+                    featuresList.appendChild(listItem);
+                });
+                placeCard.appendChild(featuresList);
+
+                const wishlistButton = document.createElement('button');
+                wishlistButton.textContent = 'Add to Wishlist';
+                wishlistButton.onclick = () => addToWishlist(place.name);
+                placeCard.appendChild(wishlistButton);
+
+                const cartButton = document.createElement('button');
+                cartButton.textContent = 'Add to Cart';
+                cartButton.onclick = () => addToCart(place.name);
+                placeCard.appendChild(cartButton);
+
+                placesList.appendChild(placeCard);
+            });
+        };
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

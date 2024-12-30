@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="packages.css">
+    <title>Explore India's Beautiful Beaches</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(130, 153, 176);
+    text-align: center;
+    background-image: url('i12.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cards-container {
+    display: inline-block;
+    text-align: center;
+    padding: 20px 90px;
+    margin-top: 100px;
+}
+
+.cards {
+    width: 300px;
+    height: 450px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px black;
+    overflow: hidden;
+    transition: transform 0.6s ease;
+    margin-bottom: 25px;
+}
+
+.cards:hover {
+    transform: translateY(-20px);
+}
+[1:56 PM, 10/12/2024] Mehak Setia: 
+.cards img {
+    width: 100%;
+    height: 200px;
+}
+
+.cards-content {
+    padding: 20px;
+}
+
+.cards-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cards-content p {
+    font-size: 15px;
+    color: black;
+    text-align: justify;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.view-more {
+    background-color: #ff5722; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-more:hover {
+    background-color: #e64a19; /* Darker shade on hover */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#packageDetails {
+    margin-top: 20px;
+}
+.package-card {
+    background-color: rgba(242, 95, 176, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.package-card h3 {
+    color: #007bff; /* Beachy blue color */
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.package-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.package-card li {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.package-card li strong {
+    color: #007bff; /* Beachy blue for labels */
+}
+
+.package-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f; /* Highlighted price color */
+    text-align: center;
+    margin-top: 15px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore India's Beautiful Beaches</h1>
+    </header>
+    <div class="cards-container">
+        <div class="cards" id="Puri">
+            <img src="beach/img1.png" alt="Puri Beach">
+            <div class="cards-content">
+                <h1>Puri Beach</h1>
+                <p>Puri Beach in Odisha is a sacred and scenic spot, drawing pilgrims to its shores year-round...</p>
+                <button class="view-more" onclick="openModal('Puri')">View Packages</button>
+            </div>
+        </div>
+        <div class="cards" id="Rushikonda">
+            <img src="beach/img2.png" alt="Rushikonda Beach">
+            <div class="cards-content">
+                <h1>Rushikonda Beach</h1>
+                <p>Rushikonda Beach near Visakhapatnam is a haven for nature lovers...</p>
+                <button class="view-more" onclick="openModal('Rushikonda')">View Packages</button>
+            </div>
+        </div>
+        <div class="cards" id="Kovalam">
+            <img src="beach/img3.jpg" alt="Kovalam Beach">
+            <div class="cards-content">
+                <h1>Kovalam Beach</h1>
+                <p>Kovalam Beach in Kerala is a renowned tourist spot...</p>
+                <button class="view-more" onclick="openModal('Kovalam')">View Packages</button>
+            </div>
+        </div>
+        <!-- Add more beach cards similarly -->
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="packageModal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2 id="modalTitle"></h2>
+          <div id="packageDetails"></div>
+      </div>
+  </div>
+  
+  <script>
+    function openModal(beach) {
+      document.getElementById('modalTitle').innerText = `${beach} Packages`; // Corrected string interpolation
+      document.getElementById('packageDetails').innerHTML = getPackageDetails(beach);
+      document.getElementById('packageModal').style.display = "block";
+    }
+    
+    function closeModal() {
+      document.getElementById('packageModal').style.display = "none";
+    }
+    
+    function getPackageDetails(beach) {
+      // Sample package details with per-day pricing and enhanced styling
+      const packages = {
+          'Puri': `
+              <div class="package-card">
+                  <h3>Small Package</h3>
+                  <ul>
+                      <li><strong>Duration:</strong> 3 days, 2 nights</li>
+                      <li><strong>Meals:</strong> 3 meals/day</li>
+                      <li><strong>Transport:</strong> Train (2nd class)</li>
+                      <li><strong>Timing:</strong> Departure at 10 AM, Arrival at 6 PM</li>
+                      <li><strong>Accommodation:</strong> Hotel Sea View</li>
+                      <li><strong>Room Type:</strong> Standard room</li>
+                      <li><strong>Room Facilities:</strong> AC, TV, free Wi-Fi</li>
+                      <li class="price"><strong>Price:</strong> ₹2,000 per day (Total: ₹6,000)</li>
+                      <li><strong>Attractions:</strong> Beach access, local sightseeing</li>
+                  </ul>
+              </div>
+              <div class="package-card">
+                  <h3>Medium Package</h3>
+                  <ul>
+                      <li><strong>Duration:</strong> 5 days, 4 nights</li>
+                      <li><strong>Meals:</strong> 3 meals/day</li>
+                      <li><strong>Transport:</strong> Flight (Economy Class)</li>
+                      <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 1 PM</li>
+                      <li><strong>Accommodation:</strong> Hotel Paradise</li>
+                      <li><strong>Room Type:</strong> Deluxe room</li>
+                      <li><strong>Room Facilities:</strong> AC, mini-bar, free Wi-Fi</li>
+                      <li class="price"><strong>Price:</strong> ₹2,500 per day (Total: ₹12,500)</li>
+                      <li><strong>Attractions:</strong> Guided tour, local cuisine experience</li>
+                  </ul>
+              </div>
+              <div class="package-card">
+                  <h3>Deluxe Package</h3>
+                  <ul>
+                      <li><strong>Duration:</strong> 7 days, 6 nights</li>
+                      <li><strong>Meals:</strong> All meals included</li>
+                      <li><strong>Transport:</strong> Flight (Business Class)</li>
+                      <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 12 PM</li>
+                      <li><strong>Accommodation:</strong> Hotel Grand Puri</li>
+                      <li><strong>Room Type:</strong> Suite</li>
+                      <li><strong>Room Facilities:</strong> AC, private balcony, complimentary spa access</li>
+                      <li class="price"><strong>Price:</strong> ₹2,857 per day (Total: ₹20,000)</li>
+                      <li><strong>Attractions:</strong> Private guide, exclusive beach dinner, water sports</li>
+                  </ul>
+              </div>
+          `,
+          'Rushikonda': `
+              <div class="package-card">
+                  <h3>Small Package</h3>
+                  <ul>
+                      <li><strong>Duration:</strong> 2 days, 1 night</li>
+                      <li><strong>Meals:</strong> 2 meals/day</li>
+                      <li><strong>Transport:</strong> Bus</li>
+                      <li><strong>Accommodation:</strong> Hotel Beach View</li>
+                      <li class="price"><strong>Price:</strong> ₹1,500 (Total: ₹1,500)</li>
+                  </ul>
+              </div>
+          `,
+          'Kovalam': `
+              <div class="package-card">
+                  <h3>Luxury Package</h3>
+                  <ul>
+                      <li><strong>Duration:</strong> 5 days, 4 nights</li>
+                      <li><strong>Meals:</strong> All meals included</li>
+                      <li><strong>Transport:</strong> Private Car</li>
+                      <li><strong>Accommodation:</strong> 5-Star Hotel</li>
+                      <li class="price"><strong>Price:</strong> ₹15,000 (Total: ₹15,000)</li>
+                  </ul>
+              </div>
+          `,
+          // Add package details for other beaches as needed
+      };
+      return packages[beach] || '<p>No packages available.</p>';
+    }
+    </script>
+    
+    <!-- <script>
+
+function openModal(beach) {
+  document.getElementById('modalTitle').innerText = ${beach} Packages;
+  document.getElementById('packageDetails').innerHTML = getPackageDetails(beach);
+  document.getElementById('packageModal').style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById('packageModal').style.display = "none";
+}
+
+function getPackageDetails(beach) {
+  // Sample package details with per-day pricing and enhanced styling
+  const packages = {
+      'Puri': `
+          <div class="package-card">
+              <h3>Small Package</h3>
+              <ul>
+                  <li><strong>Duration:</strong> 3 days, 2 nights</li>
+                  <li><strong>Meals:</strong> 3 meals/day</li>
+                  <li><strong>Transport:</strong> Train (2nd class)</li>
+                  <li><strong>Timing:</strong> Departure at 10 AM, Arrival at 6 PM</li>
+                  <li><strong>Accommodation:</strong> Hotel Sea View</li>
+                  <li><strong>Room Type:</strong> Standard room</li>
+                  <li><strong>Room Facilities:</strong> AC, TV, free Wi-Fi</li>
+                  <li class="price"><strong>Price:</strong> ₹2,000 per day (Total: ₹6,000)</li>
+                  <li><strong>Attractions:</strong> Beach access, local sightseeing</li>
+              </ul>
+          </div>
+          <div class="package-card">
+              <h3>Medium Package</h3>
+              <ul>
+                  <li><strong>Duration:</strong> 5 days, 4 nights</li>
+                  <li><strong>Meals:</strong> 3 meals/day</li>
+                  <li><strong>Transport:</strong> Flight (Economy Class)</li>
+                  <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 1 PM</li>
+                  <li><strong>Accommodation:</strong> Hotel Paradise</li>
+                  <li><strong>Room Type:</strong> Deluxe room</li>
+                  <li><strong>Room Facilities:</strong> AC, mini-bar, free Wi-Fi</li>
+                  <li class="price"><strong>Price:</strong> ₹2,500 per day (Total: ₹12,500)</li>
+                  <li><strong>Attractions:</strong> Guided tour, local cuisine experience</li>
+              </ul>
+          </div>
+          <div class="package-card">
+              <h3>Deluxe Package</h3>
+              <ul>
+                  <li><strong>Duration:</strong> 7 days, 6 nights</li>
+                  <li><strong>Meals:</strong> All meals included</li>
+                  <li><strong>Transport:</strong> Flight (Business Class)</li>
+                  <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 12 PM</li>
+                  <li><strong>Accommodation:</strong> Hotel Grand Puri</li>
+                  <li><strong>Room Type:</strong> Suite</li>
+                  <li><strong>Room Facilities:</strong> AC, private balcony, complimentary spa access</li>
+                  <li class="price"><strong>Price:</strong> ₹2,857 per day (Total: ₹20,000)</li>
+                  <li><strong>Attractions:</strong> Private guide, exclusive beach dinner, water sports</li>
+              </ul>
+          </div>
+      `,
+      // Add package details for other beaches as needed
+  };
+  return packages[beach] || '<p>No packages available.</p>';
+}</script> -->

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(130, 153, 176);
+            text-align: center;
+            background-image: url('mountain_img/background.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+            height: 100px;
+            position: fixed;
+        }
+
+        .navbar h1 {
+            font-size: 1.8rem;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        nav button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        nav button:hover {
+            color: #f1c40f;
+        }
+
+        #wishlistCount,
+        #cartCount {
+            background-color: white;
+            color: #e74c3c;
+            padding: 2px 6px;
+            border-radius: 50%;
+            margin-left: 4px;
+        }
+
+        .cards-container {
+            display: inline-block;
+            text-align: center;
+            padding: 20px 90px;
+            margin-top: 100px;
+        }
+
+        .dropdown {
+            margin-left: auto; /* Pushes the dropdown to the right */
+            
+    }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: 25%; /* 1/4 of the page */
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+            
+        }
+        .cards-container {
+    display: inline-block;
+    text-align: center;
+    padding: 20px 90px;
+    margin-top: 100px;
+}
+
+.cards {
+    width: 400px;
+    height: 520px;
+    background-color: lightgoldenrodyellow;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px black;
+    overflow: hidden;
+    transition: transform 0.6s ease;
+    margin-bottom: 25px;
+    margin-right: 30px;
+}
+
+
+
+.cards img {
+    width: 100%;
+    height: 200px;
+}
+
+.cards-content {
+    padding: 20px;
+}
+
+.cards-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cards-content p {
+    font-size: 15px;
+    color: black;
+    text-align: justify;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.view-more {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.view-more:hover {
+    background-color: #e64a19;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#packageDetails {
+    margin-top: 20px;
+}
+
+.package-card {
+    background-color: lightgreen;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.package-card h3 {
+    color: blue;
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.package-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.package-card li {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.package-card li strong {
+    color: blue;
+}
+
+.package-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f;
+    text-align: center;
+    margin-top: 15px;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>Explore Nature's Majestic Mountains</h1>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown()">Pages</button>
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="homepg.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="indiaov.html">India Overview</a>
+                    <a href="Goa.html">Goa</a>
+                    <a href="monument.html">Monuments</a>
+                    <a href="mountain.html">Mountains</a>
+                    <a href="rameshwaram.html">Rameshwaram</a>
+                    <a href="beaches.html">Beaches</a>
+                    <a href="dawarika.html">Dawarika</a>
+                    <a href="shimla.html">Shimla</a>
+                    <a href="jaipur.html">Jaipur</a>
+                </div>
+            </div>
+            <div class="nav button">
+                <button id="wishlistbtn">
+                    Wishlist <span id="wishlistCount">0</span> 🧡
+                </button>
+                <button id="cartbtn">
+                    Cart <span id="cartCount">0</span> 🛒
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="cards-container">
+        
+        <div class="cards" id="GreatHimalayan">
+            <img src="mountain_img/great himal.webp">
+            <div class="cards-content">
+                <h1>Great Himalayan Range</h1>
+                <p>The Great Himalaya Range, spanning around 1,500 miles, is a monumental mountain range in Asia that
+                    includes some of the tallest peaks on Earth, including Mount Everest and Kangchenjunga. Formed by
+                    the tectonic collision of the Indian and Eurasian plates, it influences weather patterns, provides
+                    vital freshwater resources, and is rich in biodiversity. The range is culturally significant, with
+                    many important Hindu and Buddhist sites and diverse ethnic communities.</p>
+                <button class="view-more" onclick="openModal('Great Himalayan Range')">View Packages</button>
+
+            </div>
+        </div>
+        <div class="cards" id="Shivalik">
+            <img src="mountain_img/shivalik.webp">
+            <div class="cards-content">
+                <h1>Shivalik Range</h1>
+                <p>The Shivalik Range, also known as the Siwaliks, is the outermost range of the Himalayas, stretching
+                    across northern India, Nepal, and Pakistan. It lies between the Lesser Himalayas and the
+                    Indo-Gangetic Plain. The Shivaliks are typically rising between 1,000 and 2,000 meters. This range
+                    is known for its rolling hills, fertile valleys, and rich biodiversity, and it plays a key role in
+                    forming the transition zone between the high Himalayas and the plains.</p>
+                <button class="view-more" onclick="openModal('Shivalik Range')">View Packages</button>
+
+            </div>
+        </div>
+        <div class="cards" id="Vindhya">
+            <img src="mountain_img/vindhya.webp">
+            <div class="cards-content">
+                <h1>Vindhya Range</h1>
+                <p>The Vindhya Range is a mountain range in central India, extending approximately 1,000 miles from the
+                    east to the west.It forms a natural barrier between the northern and southern parts of India,
+                    running parallel to the Narmada River. The range is typically ranging from 300 to 1,000 meters. The
+                    Vindhyas play a significant role in India's climate and hydrology, influencing the distribution of
+                    rivers and contributing to the region's diverse ecosystems.</p>
+                <button class="view-more" onclick="openModal('Vindhya Range')">View Packages</button>
+
+            </div>
+        </div>
+        <div class="cards" id="Aravalli">
+            <img src="mountain_img/aravalli.webp">
+            <div class="cards-content">
+                <h1>Aravalli Range</h1>
+                <p>The Aravalli Range is one of the oldest mountain ranges in India, extending about 800 kilometers from
+                    the northeastern state of Gujarat to the southeastern state of Haryana. It forms a natural barrier
+                    between the Thar Desert to the west and the fertile plains of northern India to the east. The range
+                    features low to moderate elevations. The Aravallis play a crucial role in influencing the region’s
+                    climate and biodiversity.</p>
+                <button class="view-more" onclick="openModal('Aravalli Range')">View Packages</button>
+
+            </div>
+        </div>
+        <div class="cards" id="WesternGhats">
+            <img src="mountain_img/western ghats.webp">
+            <div class="cards-content">
+                <h1>Western Ghats</h1>
+                <p>The Western Ghats, also known as the Sahyadri Hills, are a mountain range running parallel to the
+                    western coast of India. Extending about 1,600 kilometers from Gujarat to Tamil Nadu, they are known
+                    for their rich biodiversity, with numerous endemic species of flora and fauna.The Western Ghats play
+                    a crucial role in influencing India's monsoon weather patterns and are recognized as a UNESCO World
+                    Heritage Site for their ecological importance.</p>
+                <button class="view-more" onclick="openModal('Western Ghats')">View Packages</button>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="packageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="packageDetails"></div>
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+         let wishlistCount = 0;
+        let cartCount = 0;
+
+
+
+        function openModal(mountain) {
+            document.getElementById('modalTitle').innerText = `${mountain} Packages`;
+            document.getElementById('packageDetails').innerHTML = getPackageDetails(mountain);
+            document.getElementById('packageModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('packageModal').style.display = "none";
+        }
+        function addToWishlist() {
+            wishlistCount++;
+            document.getElementById('wishlistCount').innerText = wishlistCount;
+        }
+
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cartCount').innerText = cartCount;
+        }
+
+        function getPackageDetails(mountain) {
+            // Sample package details with per-day pricing and enhanced styling
+            const packages = {
+                'Great Himalayan Range': `
+            <div class="package-card">
+                <h3>Small Package</h3>
+                <ul>
+                    <li><strong>Duration:</strong> 3 days, 2 nights</li>
+                    <li><strong>Meals:</strong> 3 meals/day</li>
+                    <li><strong>Transport:</strong> Bus (Luxury AC Coach)</li>
+                    <li><strong>Timing:</strong> Departure at 7 AM, Arrival at 5 PM</li>
+                    <li><strong>Accommodation:</strong> Himalayan Eco Lodge</li>
+                    <li><strong>Room Type:</strong> Standard cottage</li>
+                    <li><strong>Room Facilities:</strong> Heater, free Wi-Fi, mountain views</li>
+                    <li class="price"><strong>Price:</strong> ₹3,000 per day (Total: ₹9,000)</li>
+                    <li><strong>Attractions:</strong> Nature walks, local village tour</li>
+                </ul>
+                <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+            </div>
+            <div class="package-card">
+                <h3>Medium Package</h3>
+                <ul>
+                    <li><strong>Duration:</strong> 5 days, 4 nights</li>
+                    <li><strong>Meals:</strong> 3 meals/day</li>
+                    <li><strong>Transport:</strong> Train (1st Class)</li>
+                    <li><strong>Timing:</strong> Departure at 6 AM, Arrival at 3 PM</li>
+                    <li><strong>Accommodation:</strong> Mountain View Resort</li>
+                    <li><strong>Room Type:</strong> Deluxe room with panoramic views</li>
+                    <li><strong>Room Facilities:</strong> Heater, fireplace, free Wi-Fi</li>
+                    <li class="price"><strong>Price:</strong> ₹4,000 per day (Total: ₹20,000)</li>
+                    <li><strong>Attractions:</strong> Guided trekking, bonfire nights, yoga sessions</li>
+                </ul>
+                <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+            <div class="package-card">
+                <h3>Deluxe Package</h3>
+                <ul>
+                    <li><strong>Duration:</strong> 7 days, 6 nights</li>
+                    <li><strong>Meals:</strong> All meals included</li>
+                    <li><strong>Transport:</strong> Helicopter Ride (One-way to base camp)</li>
+                    <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 11 AM</li>
+                    <li><strong>Accommodation:</strong> Luxury Himalayan Retreat</li>
+                    <li><strong>Room Type:</strong> Private villa with snow-capped mountain views</li>
+                    <li><strong>Room Facilities:</strong> Heater, Jacuzzi, personal chef, complimentary spa services</li>
+                    <li class="price"><strong>Price:</strong> ₹5,000 per day (Total: ₹35,000)</li>
+                    <li><strong>Attractions:</strong> Private mountain guide, glacier tours, exclusive campfire dinners, helicopter sightseeing</li>
+                </ul>
+                <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+        `,
+                'Shivalik Range': `
+            <div class="package-card">
+                <h3>Small Package</h3>
+                <ul>
+                    <li><strong>Duration:</strong> 3 days, 2 nights</li>
+                    <li><strong>Meals:</strong> 3 meals/day</li>
+                    <li><strong>Transport:</strong> Train (2nd Class)</li>
+                    <li><strong>Timing:</strong> Departure at 10 AM, Arrival at 6 PM</li>
+                    <li><strong>Accommodation:</strong> Shivalik Mountain Lodge</li>
+                    <li><strong>Room Type:</strong> Standard room</li>
+                    <li><strong>Room Facilities:</strong> Heater, free Wi-Fi, mountain views</li>
+                    <li class="price"><strong>Price:</strong> ₹2,200 per day (Total: ₹6,600)</li>
+                    <li><strong>Attractions:</strong> Nature trails, local sightseeing in nearby villages</li>
+                </ul>
+                <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+            </div>
+            <div class="package-card">
+                <h3>Medium Package</h3>
+                <ul>
+                    <li><strong>Duration:</strong> 5 days, 4 nights</li>
+                    <li><strong>Meals:</strong> 3 meals/day</li>
+                    <li><strong>Transport:</strong> Private Car</li>
+                    <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 2 PM</li>
+                    <li><strong>Accommodation:</strong> Shivalik Hills Resort</li>
+                    <li><strong>Room Type:</strong> Deluxe room with valley view</li>
+                    <li><strong>Room Facilities:</strong> Heater, balcony, free Wi-Fi</li>
+                    <li class="price"><strong>Price:</strong> ₹3,000 per day (Total: ₹15,000)</li>
+                    <li><strong>Attractions:</strong> Guided nature walks, visits to historical temples, local handicraft tours</li>
+                </ul>
+                <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+            </div>
+            <div class="package-card">
+                <h3>Deluxe Package</h3>
+                <ul>
+                    <li><strong>Duration:</strong> 7 days, 6 nights</li>
+                    <li><strong>Meals:</strong> All meals included</li>
+                    <li><strong>Transport:</strong> Flight (Business Class) to nearest city, then private car to destination</li>
+                    <li><strong>Timing:</strong> Departure at 7 AM, Arrival at 11 AM</li>
+                    <li><strong>Accommodation:</strong> Luxury Shivalik Retreat</li>
+                    <li><strong>Room Type:</strong> Suite with private garden</li>
+                    <li><strong>Room Facilities:</strong> Heater, Jacuzzi, complimentary spa services, private balcony with panoramic views</li>
+                    <li class="price"><strong>Price:</strong> ₹4,000 per day (Total: ₹28,000)</li>
+                    <li><strong>Attractions:</strong> Private guided trek, bonfire evenings, exclusive cultural performances</li>
+                </ul>
+                <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+            </div>
+        `,
+                'Vindhya Range': `
+        <div class="package-card">
+    <h3>Small Package</h3>
+    <ul>
+        <li><strong>Duration:</strong> 3 days, 2 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Train (2nd class)</li>
+        <li><strong>Timing:</strong> Departure at 10 AM, Arrival at 6 PM</li>
+        <li><strong>Accommodation:</strong> Vindhya Valley Lodge</li>
+        <li><strong>Room Type:</strong> Standard room</li>
+        <li><strong>Room Facilities:</strong> Fan, TV, free Wi-Fi</li>
+        <li class="price"><strong>Price:</strong> ₹2,200 per day (Total: ₹6,600)</li>
+        <li><strong>Attractions:</strong> Local sightseeing, nature walks</li>
+    </ul>
+    <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+
+<div class="package-card">
+    <h3>Medium Package</h3>
+    <ul>
+        <li><strong>Duration:</strong> 5 days, 4 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Private Car</li>
+        <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 3 PM</li>
+        <li><strong>Accommodation:</strong> Vindhya Retreat</li>
+        <li><strong>Room Type:</strong> Deluxe room</li>
+        <li><strong>Room Facilities:</strong> AC, mini-bar, free Wi-Fi</li>
+        <li class="price"><strong>Price:</strong> ₹2,800 per day (Total: ₹14,000)</li>
+        <li><strong>Attractions:</strong> Guided trekking, visit to ancient temples, cultural tours</li>
+    </ul>
+    <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+
+<div class="package-card">
+    <h3>Deluxe Package</h3>
+    <ul>
+        <li><strong>Duration:</strong> 7 days, 6 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Flight (Business Class)</li>
+        <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 12 PM</li>
+        <li><strong>Accommodation:</strong> Vindhya Luxury Resort</li>
+        <li><strong>Room Type:</strong> Suite with private balcony</li>
+        <li><strong>Room Facilities:</strong> AC, Jacuzzi, complimentary spa access</li>
+        <li class="price"><strong>Price:</strong> ₹3,200 per day (Total: ₹22,400)</li>
+        <li><strong>Attractions:</strong> Exclusive cultural performances, private tour guide, river cruise</li>
+    </ul>
+    <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+ `,
+                'Aravalli Range': `
+
+ <div class="package-card">
+ <h3>Small Package</h3>
+ <ul>
+     <li><strong>Duration:</strong> 3 days, 2 nights</li>
+     <li><strong>Meals:</strong> 3 meals/day</li>
+     <li><strong>Transport:</strong> Train (2nd Class)</li>
+     <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 4 PM</li>
+     <li><strong>Accommodation:</strong> Aravalli Hills Lodge</li>
+     <li><strong>Room Type:</strong> Standard room</li>
+     <li><strong>Room Facilities:</strong> AC, free Wi-Fi, hill views</li>
+     <li class="price"><strong>Price:</strong> ₹2,200 per day (Total: ₹6,600)</li>
+     <li><strong>Attractions:</strong> Hiking, local sightseeing in heritage villages</li>
+ </ul>
+ <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+
+<div class="package-card">
+ <h3>Medium Package</h3>
+ <ul>
+     <li><strong>Duration:</strong> 5 days, 4 nights</li>
+     <li><strong>Meals:</strong> 3 meals/day</li>
+     <li><strong>Transport:</strong> Private Car</li>
+     <li><strong>Timing:</strong> Departure at 7 AM, Arrival at 3 PM</li>
+     <li><strong>Accommodation:</strong> Aravalli Resort</li>
+     <li><strong>Room Type:</strong> Deluxe room with valley views</li>
+     <li><strong>Room Facilities:</strong> AC, private balcony, free Wi-Fi</li>
+     <li class="price"><strong>Price:</strong> ₹2,800 per day (Total: ₹14,000)</li>
+     <li><strong>Attractions:</strong> Heritage walks, camel safari, guided nature trails</li>
+ </ul>
+ <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+
+<div class="package-card">
+ <h3>Deluxe Package</h3>
+ <ul>
+     <li><strong>Duration:</strong> 7 days, 6 nights</li>
+     <li><strong>Meals:</strong> All meals included</li>
+     <li><strong>Transport:</strong> Flight (Business Class) to nearby city, then private car to destination</li>
+     <li><strong>Timing:</strong> Departure at 6 AM, Arrival at 12 PM</li>
+     <li><strong>Accommodation:</strong> Luxury Aravalli Retreat</li>
+     <li><strong>Room Type:</strong> Private villa with garden views</li>
+     <li><strong>Room Facilities:</strong> AC, Jacuzzi, complimentary spa services, private terrace with panoramic views</li>
+     <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹24,500)</li>
+     <li><strong>Attractions:</strong> Private heritage tours, exclusive cultural performances, stargazing experience</li>
+ </ul>
+ <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+`,
+                'Western Ghats': `
+<div class="package-card">
+    <h3>Small Package</h3>
+    <ul>
+        <li><strong>Duration:</strong> 3 days, 2 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Train (2nd class)</li>
+        <li><strong>Timing:</strong> Departure at 10 AM, Arrival at 6 PM</li>
+        <li><strong>Accommodation:</strong> Western Ghats Eco Lodge</li>
+        <li><strong>Room Type:</strong> Standard room</li>
+        <li><strong>Room Facilities:</strong> Fan, free Wi-Fi, forest views</li>
+        <li class="price"><strong>Price:</strong> ₹2,200 per day (Total: ₹6,600)</li>
+        <li><strong>Attractions:</strong> Nature trails, local sightseeing, tea plantation visits</li>
+    </ul>
+    <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+
+<div class="package-card">
+    <h3>Medium Package</h3>
+    <ul>
+        <li><strong>Duration:</strong> 5 days, 4 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Flight (Economy Class)</li>
+        <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 1 PM</li>
+        <li><strong>Accommodation:</strong> Mountain Paradise Resort</li>
+        <li><strong>Room Type:</strong> Deluxe room</li>
+        <li><strong>Room Facilities:</strong> AC, mini-bar, free Wi-Fi, balcony with valley views</li>
+        <li class="price"><strong>Price:</strong> ₹2,800 per day (Total: ₹14,000)</li>
+        <li><strong>Attractions:</strong> Guided plantation tours, nature hikes, waterfall visits</li>
+    </ul>
+    <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+
+<div class="package-card">
+    <h3>Deluxe Package</h3>
+    <ul>
+        <li><strong>Duration:</strong> 7 days, 6 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Flight (Business Class)</li>
+        <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 12 PM</li>
+        <li><strong>Accommodation:</strong> Luxury Ghats Retreat</li>
+        <li><strong>Room Type:</strong> Suite</li>
+        <li><strong>Room Facilities:</strong> AC, private balcony, Jacuzzi, complimentary spa access</li>
+        <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹24,500)</li>
+        <li><strong>Attractions:</strong> Private guided treks, exclusive dinner experiences, jeep safaris, yoga and meditation sessions</li>
+    </ul>
+    <button onclick="addToWishlist()">Add to Wishlist</button>
+                <button onclick="addToCart()">Add to Cart</button>
+              
+</div>
+`
+
+
+            };
+
+            return packages[mountain] || '<p>No packages available.</p>';
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

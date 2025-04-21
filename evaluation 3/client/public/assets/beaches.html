@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(130, 153, 176);
+    text-align: center;
+    background-image: url('beach_img/img13.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header {
+    background-color: hotpink;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 25%; /* 1/4 of the page */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: hotpink;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: yellow;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.cards-container {
+    display: inline-block;
+    text-align: center;
+    padding: 20px 90px;
+    margin-top: 100px;
+    
+}
+.cards {
+    width: 400px;
+    height: 500px;
+    background-color: pink;
+    display:inline-block;
+    vertical-align: top;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px hotpink;
+    overflow: hidden;
+    transition: transform 0.6s ease;
+    margin-bottom: 25px;
+    margin-right: 30px;
+
+}
+
+
+.cards:hover {
+    transform: translateY(-20px);
+}
+
+.cards img {
+    width: 100%;
+    height: 200px;
+}
+
+.cards-content {
+    padding: 20px;
+}
+
+.cards-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    
+}
+
+.cards-content p {
+    font-size: 15px;
+    color: black;
+    text-align: justify;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.view-more {
+    background-color: #ff5722; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-more:hover {
+    background-color: #e64a19; 
+}
+
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#packageDetails {
+    margin-top: 20px;
+}
+.package-card {
+    background-color: lightgreen;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.package-card h3 {
+    color:blue; 
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-align: center;
+    
+}
+
+.package-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.package-card li {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.package-card li strong {
+    color:blue; 
+}
+
+.package-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f; 
+    text-align: center;
+    margin-top: 15px;
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">Pages</button>
+                    <div id="dropdownMenu" class="dropdown-content">
+                        <a href="homepg.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="indiaov.html">India Overview</a>
+                        <a href="Goa.html">Goa</a>
+                        <a href="monuments.html">Monuments</a>
+                        <a href="rameshwaram.html">Rameshwaram</a>
+                        <a href="beaches.html">Beaches</a>
+                        <a href="dawarika.html">Dawarika</a>
+                        <a href="shimla.html">Shimla</a>
+                        <a href="jaipur.html">Jaipur</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="cards-container">
+        <div class="cards" id="Puri">
+            <img src="beach_img/img1.png">
+            <div class="cards-content">
+            <h1>Puri Beach</h1>
+            <p>Puri Beach in Odisha is a sacred and scenic spot, drawing pilgrims to its shores year-round. The annual beach festival celebrates culture with sand art and music, enhancing its allure. The golden sands stretch endlessly, meeting the Bay of Bengal's waves. Nearby, the Jagannath Temple adds a spiritual charm to the coastal beauty</p>
+            <button class="view-more" onclick="openModal('Puri Beach')">View Packages</button>
+            </div>
+        </div>
+    </div>
+    <div class="cards-container">
+        <div class="cards" id="Rushikonda">
+            <img src="beach_img/img2.png">
+
+            <div class="cards-content">
+            <h1>Rushikonda Beach</h1>
+            <p>Rushikonda Beach near Visakhapatnam is a haven for nature lovers, offering serene views and gentle waves. The lush green hills surrounding the beach add to its tranquility, making it a picturesque destination. Adventure seekers enjoy water sports like jet skiing and windsurfing here. The beach remains clean and well-maintained</p>
+            <button class="view-more" onclick="openModal('Rushikonda Beach')">View Packages</button>
+            </div>
+        </div>
+    </div>
+    <div class="cards-container">
+        <div class="cards" id="Kovalam">
+            <img src="beach_img/img3.jpg">
+
+            <div class="cards-content">
+            <h1>Kovalam Beach</h1>
+            <p>Kovalam Beach in Kerala is a renowned tourist spot, famed for its towering lighthouse that offers panoramic views. The beach is lined with coconut trees, providing shade to those strolling along its crescent-shaped shore. Kovalam is also a hub for surfing and Ayurvedic treatments, attracting international visitors. The blend vibrant</p>
+            <button class="view-more" onclick="openModal('Kovalam Beach')">View Packages</button>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="cards-container">
+        <div class="cards" id="Shivrajpur">
+            <img src="beach_img/img4.jpg"> 
+            <div class="cards-content">
+            <h1>Shivrajpur Beach</h1>
+            <p>Shivrajpur Beach, located in Devbhoomi Dwarka, Gujarat, India, is famous for its pristine golden sands, clear waters, and serene atmosphere. It's a popular spot for swimming, water sports, and relaxation. The beach is also known for its Blue Flag certification, which is an international recognition for clean, safe, and environmentally</p>
+            <button class="view-more" onclick="openModal('Shivrajpur Beach')">View Packages</button>
+            </div>
+        </div>
+    </div>
+    <div class="cards-container">
+        <div class="cards" id="Juhu">
+            <img src="beach_img/img5.jpg">
+            <div class="cards-content">
+            <h1>Juhu Beach</h1>
+            <p>Juhu Beach, located in Mumbai, Maharashtra, India, is one of the longest urban beaches in the world. It stretches for 6 km along the Arabian Sea and is a popular spot for swimming, water sports, and relaxation. The beach is famous for its golden sands, clear waters, and scenic views. It's also a hub for cultural and entertainment activities</p>
+            <button class="view-more" onclick="openModal('Juhu Beach')">View Packages</button>
+            </div>
+        </div>
+    </div>
+<div class="cards-container">
+    <div class="cards" id="Baga">
+        <img src="beach_img/img6.jpg">
+
+        <div class="cards-content">
+        <h1>Baga Beach</h1>
+        <p>Baga Beach in Goa is synonymous with nightlife and adventure, attracting crowds with its beach clubs and water sports. The shacks along the shore serve delicious seafood and refreshing drinks, perfect for a day of relaxation. As the sun sets, the beach transforms into a lively party destination, with music and dance filling the air</p>
+        <button class="view-more" onclick="openModal('Baga Beach')">View Packages</button>
+        </div>
+    </div>
+</div>
+<div class="cards-container">
+    <div class="cards" id="Agonda">
+        <img src="beach_img/img7.png">
+
+        <div class="cards-content">
+        <h1>Agonda Beach</h1>
+        <p>Agonda Beach in South Goa offers a peaceful escape, far from the hustle and bustle, with its long, quiet stretch of sand. The beach is known for its calm waters, making it safe for swimming. Turtles often nest here, adding a touch of natural wonder. Yoga and meditation retreats are common, attracting those seeking serenity</p>
+        <button class="view-more" onclick="openModal('Agonda Beach')">View Packages</button>
+        </div>
+    </div>
+</div>
+<div class="cards-container">
+    <div class="cards" id="Kodi">
+        <img src="beach_img/img8.jpg">
+        <div class="cards-content">
+        <h1>Kodi Beach</h1>
+        <p>Kodi Beach, also known as Cavelossim Beach, is a picturesque beach located in South Goa, India. It is known for its serene and tranquil atmosphere, making it an ideal destination for those seeking relaxation and peace.The beach is characterized by its soft white sand, crystal-clear waters, and stunning scenery, with the Sal River flowing into the Arabian Sea</p>
+        <button class="view-more" onclick="openModal('Kodi Beach')">View Packages</button>
+        </div>
+    </div>
+</div>
+<div class="cards-container">
+    <div class="cards" id="Radhanagar">
+        <img src="beach_img/img9.jpeg">
+
+        <div class="cards-content">
+        <h1>Radhanagar Beach</h1>
+        <p>Radhanagar Beach, also known as Beach No. 7, is a stunning beach located on the Havelock Island in the Andaman and Nicobar Islands, India. It is known for its breathtaking beauty, with crystal-clear turquoise waters, soft white sand, and a picturesque coastline.The beach is surrounded by lush green forests and is home to a variety of marine life</p>
+        <button class="view-more" onclick="openModal('Radhanagar Beach')">View Packages</button>
+        
+
+        </div>
+    </div>
+</div>
+<div class="cards-container">
+    <div class="cards" id="Kala Pathar">
+        <img src="beach_img/img10.jpg">
+         <div class="cards-content">
+        <h1>Kala Pathar Beach</h1>
+        <p>The beach is surrounded by lush green forests and is home to a variety of marine life, including sea turtles and colorful fish. Radhanagar Beach is also a popular spot for swimming, snorkeling, and scuba diving, with its calm and clear waters offering a glimpse into the underwater world</p>
+        <button class="view-more" onclick="openModal('Kala Pathar Beach')">View Packages</button>
+        
+        </div>
+    </div>
+</div>
+<div class="cards-container">
+    <div class="cards" id="Mandrem">
+        <img src="beach_img/img11.png">
+         <div class="cards-content">
+        <h1>Mandrem Beach</h1>
+        <p>Mandrem Beach is a white sand beach with clear water. The beach of Mandrem lies between the twin beaches of Morjim and Arambol. This beach is a quiet and peaceful beach. The beauty of Mandrem Beach is especially during the High Tide time when the seawater rushes into the Mandrem Creek or River</p>
+        <button class="view-more" onclick="openModal('Mandrem Beach')">View Packages</button>
+        </div>
+    </div>
+</div>
+<div id="packageModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="packageDetails"></div>
+    </div>
+</div>
+
+ <script>
+    function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    function openModal(beach) {
+    document.getElementById('modalTitle').innerText = `${beach} Packages`;
+    document.getElementById('packageDetails').innerHTML = getPackageDetails(beach);
+    document.getElementById('packageModal').style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById('packageModal').style.display = "none";
+}
+
+function getPackageDetails(beach) {
+    
+    const packages = {
+        'Puri Beach': `
+            <div class="package-card">
+                <h3>Small Package</h3>
+                <ul>
+                   <li><strong>Duration:</strong> 3 days, 2 nights</li>
+                    <li><strong>Meals:</strong> Breakfast and dinner included</li>
+                    <li><strong>Transport:</strong> Bus (Luxury AC Coach)</li>
+                    <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 6 PM</li>
+                    <li><strong>Accommodation:</strong> Beachside Cottage</li>
+                    <li><strong>Room Type:</strong> Standard cottage with sea view</li>
+                    <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹10,500)</li>
+                    <li><strong>Attractions:</strong> Beach sports, temple visits</li> 
+                </ul>
+            </div>
+            <div class="package-card">
+                <h3>Medium Package</h3>
+                <ul>
+                   <li><strong>Duration:</strong> 5 days, 4 nights</li>
+                    <li><strong>Meals:</strong> All meals included</li>
+                    <li><strong>Transport:</strong> Train (1st Class)</li>
+                    <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 4 PM</li>
+                    <li><strong>Accommodation:</strong> Beach Resort</li>
+                    <li><strong>Room Type:</strong> Deluxe room with ocean view</li>
+                    <li class="price"><strong>Price:</strong> ₹4,500 per day (Total: ₹22,500)</li>
+                    <li><strong>Attractions:</strong> Surfing lessons, beach bonfire</li> 
+                </ul>
+            </div>
+            <div class="package-card">
+                <h3>Deluxe Package</h3>
+                <ul>
+                  <li><strong>Duration:</strong> 7 days, 6 nights</li>
+                    <li><strong>Meals:</strong> All meals included</li>
+                    <li><strong>Transport:</strong> Private yacht cruise</li>
+                    <li><strong>Timing:</strong> Flexible timing</li>
+                    <li><strong>Accommodation:</strong> Luxury Beach Villa</li>
+                    <li><strong>Room Type:</strong> Suite with private beach access</li>
+                    <li class="price"><strong>Price:</strong> ₹6,000 per day (Total: ₹42,000)</li>
+                    <li><strong>Attractions:</strong> Private beach parties, sunset cruises</li> 
+                </ul>
+            </div>
+        `,
+        'Rushikonda Beach': `
+            <div class="package-card">
+                <h3>Small Package</h3>
+                <ul>
+                   <li><strong>Duration:</strong> 3 days, 2 nights</li>
+                    <li><strong>Meals:</strong> Breakfast and dinner included</li>
+                    <li><strong>Transport:</strong> Bus (Luxury AC Coach)</li>
+                    <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 6 PM</li>
+                    <li><strong>Accommodation:</strong> Beachside Cottage</li>
+                    <li><strong>Room Type:</strong> Standard cottage with sea view</li>
+                    <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹10,500)</li>
+                    <li><strong>Attractions:</strong> Beach sports, temple visits</li> 
+                </ul>
+            </div>
+            <div class="package-card">
+                <h3>Medium Package</h3>
+                <ul>
+                   <li><strong>Duration:</strong> 5 days, 4 nights</li>
+                    <li><strong>Meals:</strong> All meals included</li>
+                    <li><strong>Transport:</strong> Train (1st Class)</li>
+                    <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 4 PM</li>
+                    <li><strong>Accommodation:</strong> Beach Resort</li>
+                    <li><strong>Room Type:</strong> Deluxe room with ocean view</li>
+                    <li class="price"><strong>Price:</strong> ₹4,500 per day (Total: ₹22,500)</li>
+                    <li><strong>Attractions:</strong> Surfing lessons, beach bonfire</li> 
+                </ul>
+            </div>
+            <div class="package-card">
+                <h3>Deluxe Package</h3>
+                <ul>
+                   <li><strong>Duration:</strong> 7 days, 6 nights</li>
+                    <li><strong>Meals:</strong> All meals included</li>
+                    <li><strong>Transport:</strong> Private yacht cruise</li>
+                    <li><strong>Timing:</strong> Flexible timing</li>
+                    <li><strong>Accommodation:</strong> Luxury Beach Villa</li>
+                    <li><strong>Room Type:</strong> Suite with private beach access</li>
+                    <li class="price"><strong>Price:</strong> ₹6,000 per day (Total: ₹42,000)</li>
+                    <li><strong>Attractions:</strong> Private beach parties, sunset cruises</li>
+                 
+                </ul>
+            </div>
+        `,
+        'Kovalam Beach': `
+        <div class="package-card">
+    <h3>Small Package</h3>
+    <ul>
+       <li><strong>Duration:</strong> 3 days, 2 nights</li>
+        <li><strong>Meals:</strong> Breakfast and dinner included</li>
+        <li><strong>Transport:</strong> Bus (Luxury AC Coach)</li>
+        <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 6 PM</li>
+        <li><strong>Accommodation:</strong> Beachside Cottage</li>
+        <li><strong>Room Type:</strong> Standard cottage with sea view</li>
+        <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹10,500)</li>
+        <li><strong>Attractions:</strong> Beach sports, temple visits</li> 
+    </ul>
+</div>
+
+<div class="package-card">
+    <h3>Medium Package</h3>
+    <ul>
+       <li><strong>Duration:</strong> 5 days, 4 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Train (1st Class)</li>
+        <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 4 PM</li>
+        <li><strong>Accommodation:</strong> Beach Resort</li>
+        <li><strong>Room Type:</strong> Deluxe room with ocean view</li>
+        <li class="price"><strong>Price:</strong> ₹4,500 per day (Total: ₹22,500)</li>
+        <li><strong>Attractions:</strong> Surfing lessons, beach bonfire</li> 
+    </ul>
+</div>
+
+<div class="package-card">
+    <h3>Deluxe Package</h3>
+    <ul>
+       <li><strong>Duration:</strong> 7 days, 6 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Private yacht cruise</li>
+        <li><strong>Timing:</strong> Flexible timing</li>
+        <li><strong>Accommodation:</strong> Luxury Beach Villa</li>
+        <li><strong>Room Type:</strong> Suite with private beach access</li>
+        <li class="price"><strong>Price:</strong> ₹6,000 per day (Total: ₹42,000)</li>
+        <li><strong>Attractions:</strong> Private beach parties, sunset cruises</li> 
+    </ul>
+</div>
+ `,
+    'Shivrajpur Beach': `
+
+ <div class="package-card">
+ <h3>Small Package</h3>
+ <ul>
+    <li><strong>Duration:</strong> 3 days, 2 nights</li>
+    <li><strong>Meals:</strong> Breakfast and dinner included</li>
+    <li><strong>Transport:</strong> Bus (Luxury AC Coach)</li>
+    <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 6 PM</li>
+    <li><strong>Accommodation:</strong> Beachside Cottage</li>
+    <li><strong>Room Type:</strong> Standard cottage with sea view</li>
+    <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹10,500)</li>
+    <li><strong>Attractions:</strong> Beach sports, temple visits</li> 
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Medium Package</h3>
+ <ul>
+    <li><strong>Duration:</strong> 5 days, 4 nights</li>
+    <li><strong>Meals:</strong> All meals included</li>
+    <li><strong>Transport:</strong> Train (1st Class)</li>
+    <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 4 PM</li>
+    <li><strong>Accommodation:</strong> Beach Resort</li>
+    <li><strong>Room Type:</strong> Deluxe room with ocean view</li>
+    <li class="price"><strong>Price:</strong> ₹4,500 per day (Total: ₹22,500)</li>
+    <li><strong>Attractions:</strong> Surfing lessons, beach bonfire</li>
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Deluxe Package</h3>
+ <ul>
+    <li><strong>Duration:</strong> 7 days, 6 nights</li>
+    <li><strong>Meals:</strong> All meals included</li>
+    <li><strong>Transport:</strong> Private yacht cruise</li>
+    <li><strong>Timing:</strong> Flexible timing</li>
+    <li><strong>Accommodation:</strong> Luxury Beach Villa</li>
+    <li><strong>Room Type:</strong> Suite with private beach access</li>
+    <li class="price"><strong>Price:</strong> ₹6,000 per day (Total: ₹42,000)</li>
+    <li><strong>Attractions:</strong> Private beach parties, sunset cruises</li>
+ </ul>
+</div>
+`,
+ 'Juhu Beach': `
+<div class="package-card">
+    <h3>Small Package</h3>
+    <ul>
+       <li><strong>Duration:</strong> 3 days, 2 nights</li>
+        <li><strong>Meals:</strong> Breakfast and dinner included</li>
+        <li><strong>Transport:</strong> Bus (Luxury AC Coach)</li>
+        <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 6 PM</li>
+        <li><strong>Accommodation:</strong> Beachside Cottage</li>
+        <li><strong>Room Type:</strong> Standard cottage with sea view</li>
+        <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹10,500)</li>
+        <li><strong>Attractions:</strong> Beach sports, temple visits</li> 
+    </ul>
+</div>
+
+<div class="package-card">
+    <h3>Medium Package</h3>
+    <ul>
+       <li><strong>Duration:</strong> 5 days, 4 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Train (1st Class)</li>
+        <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 4 PM</li>
+        <li><strong>Accommodation:</strong> Beach Resort</li>
+        <li><strong>Room Type:</strong> Deluxe room with ocean view</li>
+        <li class="price"><strong>Price:</strong> ₹4,500 per day (Total: ₹22,500)</li>
+        <li><strong>Attractions:</strong> Surfing lessons, beach bonfire</li> 
+    </ul>
+</div>
+
+<div class="package-card">
+    <h3>Deluxe Package</h3>
+    <ul>
+       <li><strong>Duration:</strong> 7 days, 6 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Private yacht cruise</li>
+        <li><strong>Timing:</strong> Flexible timing</li>
+        <li><strong>Accommodation:</strong> Luxury Beach Villa</li>
+        <li><strong>Room Type:</strong> Suite with private beach access</li>
+        <li class="price"><strong>Price:</strong> ₹6,000 per day (Total: ₹42,000)</li>
+        <li><strong>Attractions:</strong> Private beach parties, sunset cruises</li> 
+    </ul>
+</div>
+`,
+'Baga Beach': `
+
+ <div class="package-card">
+ <h3>Small Package</h3>
+ <ul>
+    <li><strong>Duration:</strong> 3 days, 2 nights</li>
+    <li><strong>Meals:</strong> Breakfast and dinner included</li>
+    <li><strong>Transport:</strong> Bus (Luxury AC Coach)</li>
+    <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 6 PM</li>
+    <li><strong>Accommodation:</strong> Beachside Cottage</li>
+    <li><strong>Room Type:</strong> Standard cottage with sea view</li>
+    <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹10,500)</li>
+    <li><strong>Attractions:</strong> Beach sports, temple visits</li>
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Medium Package</h3>
+ <ul>
+    <li><strong>Duration:</strong> 5 days, 4 nights</li>
+    <li><strong>Meals:</strong> All meals included</li>
+    <li><strong>Transport:</strong> Train (1st Class)</li>
+    <li><strong>Timing:</strong> Departure at 9 AM, Arrival at 4 PM</li>
+    <li><strong>Accommodation:</strong> Beach Resort</li>
+    <li><strong>Room Type:</strong> Deluxe room with ocean view</li>
+    <li class="price"><strong>Price:</strong> ₹4,500 per day (Total: ₹22,500)</li>
+    <li><strong>Attractions:</strong> Surfing lessons, beach bonfire</li>
+                
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Deluxe Package</h3>
+ <ul>
+    <li><strong>Duration:</strong> 7 days, 6 nights</li>
+    <li><strong>Meals:</strong> All meals included</li>
+    <li><strong>Transport:</strong> Private yacht cruise</li>
+    <li><strong>Timing:</strong> Flexible timing</li>
+    <li><strong>Accommodation:</strong> Luxury Beach Villa</li>
+    <li><strong>Room Type:</strong> Suite with private beach access</li>
+    <li class="price"><strong>Price:</strong> ₹6,000 per day (Total: ₹42,000)</li>
+    <li><strong>Attractions:</strong> Private beach parties, sunset cruises</li>
+ </ul>
+</div>
+`,
+'Agonda Beach': `
+
+ <div class="package-card">
+ <h3>Small Package</h3>
+ <ul>
+    <li><strong>Duration:</strong> 3 days, 2 nights</li>
+    <li><strong>Meals:</strong> 3 meals/day</li>
+    <li><strong>Transport:</strong> Train (2nd Class)</li>
+    <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 4 PM</li>
+    <li><strong>Accommodation:</strong> Beachfront Cottages</li>
+    <li><strong>Room Type:</strong> Standard room with sea view</li>
+    <li><strong>Room Facilities:</strong> AC, free Wi-Fi, balcony with ocean view</li>
+    <li class="price"><strong>Price:</strong> ₹2,200 per day (Total: ₹6,600)</li>
+    <li><strong>Attractions:</strong> Beach yoga, dolphin watching, local seafood dining</li>
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Medium Package</h3>
+ <ul>
+    <li><strong>Duration:</strong> 5 days, 4 nights</li>
+    <li><strong>Meals:</strong> 3 meals/day</li>
+    <li><strong>Transport:</strong> Private Car</li>
+    <li><strong>Timing:</strong> Departure at 7 AM, Arrival at 3 PM</li>
+    <li><strong>Accommodation:</strong> Seaside Resort</li>
+    <li><strong>Room Type:</strong> Deluxe room with ocean views</li>
+    <li><strong>Room Facilities:</strong> AC, private balcony, free Wi-Fi</li>
+    <li class="price"><strong>Price:</strong> ₹2,800 per day (Total: ₹14,000)</li>
+    <li><strong>Attractions:</strong> Snorkeling, beach bonfires, sunset cruises</li> 
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Deluxe Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 7 days, 6 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Flight (Business Class) to nearby city, then private car to beach</li>
+        <li><strong>Timing:</strong> Departure at 6 AM, Arrival at 12 PM</li>
+        <li><strong>Accommodation:</strong> Luxury Beach Resort</li>
+        <li><strong>Room Type:</strong> Private villa with garden views</li>
+        <li><strong>Room Facilities:</strong> AC, private pool, complimentary spa services</li>
+        <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹24,500)</li>
+        <li><strong>Attractions:</strong> Private beach access, exclusive dining experiences, water sports</li>
+ </ul>
+</div>
+`,
+'Kodi Beach': `
+
+ <div class="package-card">
+ <h3>Small Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 3 days, 2 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Train (2nd Class)</li>
+        <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 4 PM</li>
+        <li><strong>Accommodation:</strong> Beachfront Bungalows</li>
+        <li><strong>Room Type:</strong> Standard room with sea view</li>
+        <li><strong>Room Facilities:</strong> AC, free Wi-Fi, beach access</li>
+        <li class="price"><strong>Price:</strong> ₹2,200 per day (Total: ₹6,600)</li>
+        <li><strong>Attractions:</strong> Beach volleyball, seafood festivals, sunset views</li>
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Medium Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 5 days, 4 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Private Car</li>
+        <li><strong>Timing:</strong> Departure at 7 AM, Arrival at 3 PM</li>
+        <li><strong>Accommodation:</strong> Coastal Hotel</li>
+        <li><strong>Room Type:</strong> Deluxe room with ocean views</li>
+        <li><strong>Room Facilities:</strong> AC, private balcony, free Wi-Fi</li>
+        <li class="price"><strong>Price:</strong> ₹2,800 per day (Total: ₹14,000)</li>
+        <li><strong>Attractions:</strong> Surfing lessons, fishing trips, local markets</li>
+
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Deluxe Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 7 days, 6 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Flight (Business Class) to nearby city, then private car to beach</li>
+        <li><strong>Timing:</strong> Departure at 6 AM, Arrival at 12 PM</li>
+        <li><strong>Accommodation:</strong> Luxury Beach Villa</li>
+        <li><strong>Room Type:</strong> Private villa with garden views</li>
+        <li><strong>Room Facilities:</strong> AC, private pool, butler service</li>
+        <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹24,500)</li>
+        <li><strong>Attractions:</strong> Personal yacht tours, exclusive dining experiences, private beach access</li>
+
+ </ul>
+</div>
+`,
+'Radhanagar Beach': `
+
+ <div class="package-card">
+ <h3>Small Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 3 days, 2 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Train (2nd Class)</li>
+        <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 4 PM</li>
+        <li><strong>Accommodation:</strong> Beachfront Cabins</li>
+        <li><strong>Room Type:</strong> Standard room with sea view</li>
+        <li><strong>Room Facilities:</strong> AC, free Wi-Fi, patio with beach view</li>
+        <li class="price"><strong>Price:</strong> ₹2,200 per day (Total: ₹6,600)</li>
+        <li><strong>Attractions:</strong> Swimming, snorkeling, sunset bonfires</li>
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Medium Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 5 days, 4 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Private Car</li>
+        <li><strong>Timing:</strong> Departure at 7 AM, Arrival at 3 PM</li>
+        <li><strong>Accommodation:</strong> Beachfront Resort</li>
+        <li><strong>Room Type:</strong> Deluxe room with ocean views</li>
+        <li><strong>Room Facilities:</strong> AC, private balcony, free Wi-Fi</li>
+        <li class="price"><strong>Price:</strong> ₹2,800 per day (Total: ₹14,000)</li>
+        <li><strong>Attractions:</strong> Guided nature walks, kayaking, local seafood cooking classes</li>
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Deluxe Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 7 days, 6 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Flight (Business Class) to nearby city, then private car to beach</li>
+        <li><strong>Timing:</strong> Departure at 6 AM, Arrival at 12 PM</li>
+        <li><strong>Accommodation:</strong> Luxury Beach Retreat</li>
+        <li><strong>Room Type:</strong> Private villa with ocean views</li>
+        <li><strong>Room Facilities:</strong> AC, private hot tub, complimentary spa services</li>
+        <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹24,500)</li>
+        <li><strong>Attractions:</strong> Whale watching tours, private dining experiences, eco-friendly activities</li> 
+ </ul>
+</div>
+`,
+'Mandrem Beach': `
+
+ <div class="package-card">
+ <h3>Small Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 3 days, 2 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Train (2nd Class)</li>
+        <li><strong>Timing:</strong> Departure at 8 AM, Arrival at 4 PM</li>
+        <li><strong>Accommodation:</strong> Cozy Beach Cottages</li>
+        <li><strong>Room Type:</strong> Standard room with sea view</li>
+        <li><strong>Room Facilities:</strong> AC, free Wi-Fi, hammock on the porch</li>
+        <li class="price"><strong>Price:</strong> ₹2,200 per day (Total: ₹6,600)</li>
+        <li><strong>Attractions:</strong> Yoga classes, local art exhibitions, beach parties</li>
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Medium Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 5 days, 4 nights</li>
+        <li><strong>Meals:</strong> 3 meals/day</li>
+        <li><strong>Transport:</strong> Private Car</li>
+        <li><strong>Timing:</strong> Departure at 7 AM, Arrival at 3 PM</li>
+        <li><strong>Accommodation:</strong> Mandrem Beach Resort</li>
+        <li><strong>Room Type:</strong> Deluxe room with ocean views</li>
+        <li><strong>Room Facilities:</strong> AC, private balcony, free Wi-Fi</li>
+        <li class="price"><strong>Price:</strong> ₹2,800 per day (Total: ₹14,000)</li>
+        <li><strong>Attractions:</strong> Surfing, paddle boarding, beach massages</li>
+ </ul>
+</div>
+
+<div class="package-card">
+ <h3>Deluxe Package</h3>
+ <ul>
+        <li><strong>Duration:</strong> 7 days, 6 nights</li>
+        <li><strong>Meals:</strong> All meals included</li>
+        <li><strong>Transport:</strong> Flight (Business Class) to nearby city, then private car to beach</li>
+        <li><strong>Timing:</strong> Departure at 6 AM, Arrival at 12 PM</li>
+        <li><strong>Accommodation:</strong> Luxury Beach Villa</li>
+        <li><strong>Room Type:</strong> Private villa with ocean views</li>
+        <li><strong>Room Facilities:</strong> AC, private pool, butler service</li>
+        <li class="price"><strong>Price:</strong> ₹3,500 per day (Total: ₹24,500)</li>
+        <li><strong>Attractions:</strong> Private beach access, sunset cruises, gourmet dining</li>
+ </ul>
+</div>
+`,
+
+
+    };
+    
+    return packages[beach] || '<p>No packages available.</p>';
+}
+ </script>
+
+
+
+
+</body>
+</html>

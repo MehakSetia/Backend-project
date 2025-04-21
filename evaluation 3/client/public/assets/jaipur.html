@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaipur Travel Guide</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            line-height: 1.6;
+            background-image: url('Jaipur_img/jaipur back.webp');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 25%; /* 1/4 of the page */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        main {
+            margin: 20px 0;
+        }
+
+        b {
+            color: white;
+        }
+
+        #places-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            justify-items: center;
+        }
+
+        .place-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 4px 8px 8px yellow;
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .place-card:hover {
+            transform: scale(1.05);
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .place-card h3 {
+            margin: 15px 0 10px;
+            font-size: 1.5rem;
+            padding: 0 15px;
+        }
+
+        .place-card p {
+            font-size: 1rem;
+            color: #333;
+            padding: 0 15px;
+        }
+
+        .place-card ul {
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+
+        button {
+            display: block;
+            width: calc(100% - 30px);
+            margin: 10px 15px;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d62c1a;
+        }
+
+        /* Wishlist and cart sections */
+        #wishlist, #cart {
+            list-style: none;
+            padding: 0;
+        }
+
+        #wishlist li, #cart li {
+            background-color: lightgray;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        /* Packages section */
+        #packages-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .package {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: lightgray;
+        }
+
+        .package h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .package p {
+            margin: 5px 0;
+        }
+
+        .package .price {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>Jaipur Travel Guide</h1>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown()">Pages</button>
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="homepg.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="indiaov.html">India Overview</a>
+                    <a href="Goa.html">Goa</a>
+                    <a href="mountain.html">Mountains</a>
+                    <a href="rameshwaram.html">Rameshwaram</a>
+                    <a href="beaches.html">Beaches</a>
+                    <a href="dawarika.html">Dawarika</a>
+                    <a href="shimla.html">Shimla</a>
+                    <a href="monuments.html">Monuments</a>
+                    <a href="jaipur.html">Jaipur</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="places">
+            <h2><b>Famous Places to Visit</b></h2>
+            <br />
+            <div id="places-list">
+                <!-- Places will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Wishlist Section -->
+         <br />
+        <h2><b>Your Wishlist</b></h2>
+        <ul id="wishlist">
+            <li>No items in wishlist yet.</li>
+        </ul>
+
+        <!-- Cart Section -->
+        <h2><b>Your Cart</b></h2>
+        <ul id="cart">
+            <li>No items in cart yet.</li>
+        </ul>
+
+        <!-- More Packages Button -->
+         <br />
+        <div id="pack" style="width: 200px; height: 100px; display: flex; justify-content: center; align-items: center; background-color: #e74c3c;margin-left: 45%;border-radius: 5px;">
+            <button onclick="togglePackages()">More Packages</button>
+        </div>
+        
+        <!-- Packages Section -->
+        <div id="packages-section">
+            <div class="package">
+                <h3>Jaipur Heritage Package</h3>
+                <p>Details: 2 nights, 3 days with a stay at a 3-star hotel. Includes sightseeing of the City Palace, Hawa Mahal, and Jantar Mantar, along with breakfast.</p>
+                <p class="price">Price: ₹5,000</p>
+                <div id="btn" style="width: 350px;height: 60px;display: flex;margin-left: 40%;">
+                <button onclick="addToWishlist('Jaipur Heritage Package')">Add to Wishlist</button>
+                <button onclick="addToCart('Jaipur Heritage Package')">Add to Cart</button>
+                </div>
+            </div>
+        
+            <div class="package">
+                <h3>Jaipur Cultural Package</h3>
+                <p>Details: 4 nights, 5 days with a stay at a 4-star hotel. Includes sightseeing of Amber Fort, Nahargarh Fort, and local markets, along with breakfast and dinner.</p>
+                <p class="price">Price: ₹10,000</p>
+                <div id="btn" style="width: 350px ;height: 60px;display: flex;margin-left: 40%;">
+                <button onclick="addToWishlist('Jaipur Cultural Package')">Add to Wishlist</button>
+                <button onclick="addToCart('Jaipur Cultural Package')">Add to Cart</button>
+                </div>
+            </div>
+        
+            <div class="package">
+                <h3>Jaipur Luxury Package</h3>
+                <p>Details: 6 nights, 7 days with a stay at a 5-star hotel. Includes all meals, sightseeing of the Jaipur City, hot air balloon rides, and airport transfers.</p>
+                <p class="price">Price: ₹20,000</p>
+                <div id="btn" style="width: 350px;height: 60px;display: flex;margin-left: 40%;">
+                <button onclick="addToWishlist('Jaipur Luxury Package')">Add to Wishlist</button>
+                <button onclick="addToCart('Jaipur Luxury Package')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>        
+    <script>
+        // Data for places to visit in Dwarka
+        const places = [
+        {
+        name: "Hawa Mahal",
+        image: "Jaipur_img/hawa mahal2.jpeg",
+        description: "The 'Palace of Winds', a stunning five-story structure built in 1799, known for its unique honeycomb architecture and cool breeze.Its latticework offer beautiful views.",
+        features: ["Open from 9 AM to 5 PM", "Entry fee: ₹50 (Indian Citizens)", "Best for: Architectural enthusiasts"],
+        rating: 4.8,
+        price: 1200
+    },
+    {
+        name: "Amber Fort",
+        image: "Jaipur_img/amber fort.jpeg",
+        description: "A majestic fort built from red sandstone and marble, offering a glimpse into Rajasthan's royal history.Enjoy the panoramic views of the surrounding hills.",
+        features: ["Open from 8 AM to 5:30 PM", "Entry fee: ₹100 (Indian Citizens)", "Don't miss: Light and sound show"],
+        rating: 4.9,
+        price: 1500
+    },
+    {
+        name: "City Palace",
+        image: "Jaipur_img/city palace.jpeg",
+        description: "A beautiful blend of Mughal and Rajput architecture, the City Palace houses museums and courtyards full of history.Don't miss the stunning views from the upper floors.",
+        features: ["Open from 9 AM to 6 PM", "Entry fee: ₹130 (Indian Citizens)", "Highlight: Royal artifacts museum"],
+        rating: 4.7,
+        price: 1000
+    },
+    {
+        name: "Jantar Mantar",
+        image: "Jaipur_img/Jantar-Mantar.jpg",
+        description: "A UNESCO World Heritage site, Jantar Mantar is an astronomical observatory built in the 18th century. Its unique architectural design makes it a must-visit for history enthusiasts.",
+        features: ["Open from 9 AM to 4:30 PM", "Entry fee: ₹50 (Indian Citizens)", "Best for: Astronomy lovers"],
+        rating: 4.6,
+        price: 500
+    }
+        ];
+
+        let wishlist = [];
+        let cart = [];
+
+        function togglePackages() {
+            const packagesSection = document.getElementById('packages-section');
+            if (packagesSection.style.display === 'none' || packagesSection.style.display === '') {
+                packagesSection.style.display = 'block';
+            } else {
+                packagesSection.style.display = 'none';
+            }
+        }
+
+        function addToWishlist(item) {
+            if (!wishlist.includes(item)) {
+                wishlist.push(item);
+                updateWishlist();
+            }
+        }
+
+        function addToCart(item) {
+            if (!cart.includes(item)) {
+                cart.push(item);
+                updateCart();
+            }
+        }
+
+        function updateWishlist() {
+            const wishlistSection = document.getElementById('wishlist');
+            wishlistSection.innerHTML = '';
+            wishlist.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                wishlistSection.appendChild(listItem);
+            });
+            document.getElementById('wishlist-count').textContent = wishlist.length;
+        }
+
+        function updateCart() {
+            const cartSection = document.getElementById('cart');
+            cartSection.innerHTML = '';
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                cartSection.appendChild(listItem);
+            });
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        // Load places dynamically
+        window.onload = () => {
+            const placesList = document.getElementById('places-list');
+            places.forEach(place => {
+                const placeCard = document.createElement('div');
+                placeCard.classList.add('place-card');
+
+                const img = document.createElement('img');
+                img.src = place.image;
+                placeCard.appendChild(img);
+
+                const title = document.createElement ('h3');
+                title.textContent = place.name;
+                placeCard.appendChild(title);
+
+                const description = document.createElement('p');
+                description.textContent = place.description;
+                placeCard.appendChild(description);
+
+                const featuresList = document.createElement('ul');
+                place.features.forEach(feature => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = feature;
+                    featuresList.appendChild(listItem);
+                });
+                placeCard.appendChild(featuresList);
+
+                const wishlistButton = document.createElement('button');
+                wishlistButton.textContent = 'Add to Wishlist';
+                wishlistButton.onclick = () => addToWishlist(place.name);
+                placeCard.appendChild(wishlistButton);
+
+                const cartButton = document.createElement('button');
+                cartButton.textContent = 'Add to Cart';
+                cartButton.onclick = () => addToCart(place.name);
+                placeCard.appendChild(cartButton);
+
+                placesList.appendChild(placeCard);
+            });
+        };
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

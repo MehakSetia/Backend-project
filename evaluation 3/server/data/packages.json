@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "destinationId": "shimla",
+    "name": "Shimla Deluxe Package",
+    "description": "3 days and 2 nights in the Queen of Hills",
+    "duration": "3 days, 2 nights",
+    "price": "₹15000",
+    "inclusions": "Accommodation, Breakfast, Local Sightseeing, Toy Train Ride",
+    "exclusions": "Lunch, Dinner, Personal Expenses"
+  },
+  {
+    "id": 2,
+    "destinationId": "shimla",
+    "name": "Shimla Premium Package",
+    "description": "5 days and 4 nights luxury stay",
+    "duration": "5 days, 4 nights",
+    "price": "₹25000",
+    "inclusions": "Luxury Accommodation, All Meals, Local Sightseeing, Toy Train Ride, Adventure Activities",
+    "exclusions": "Personal Expenses"
+  },
+  {
+    "id": 3,
+    "destinationId": "goa",
+    "name": "Goa Beach Package",
+    "description": "4 days and 3 nights beach vacation",
+    "duration": "4 days, 3 nights",
+    "price": "₹20000",
+    "inclusions": "Beach Resort Stay, Breakfast, Water Sports, Local Sightseeing",
+    "exclusions": "Lunch, Dinner, Personal Expenses"
+  },
+  {
+    "id": 4,
+    "destinationId": "goa",
+    "name": "Goa Party Package",
+    "description": "5 days and 4 nights party experience",
+    "duration": "5 days, 4 nights",
+    "price": "₹30000",
+    "inclusions": "Luxury Resort Stay, All Meals, Nightlife Access, Water Sports, Local Sightseeing",
+    "exclusions": "Personal Expenses"
+  },
+  {
+    "id": 5,
+    "destinationId": "kerala",
+    "name": "Kerala Backwaters Package",
+    "description": "4 days and 3 nights backwater experience",
+    "duration": "4 days, 3 nights",
+    "price": "₹22000",
+    "inclusions": "Houseboat Stay, All Meals, Backwater Cruise, Local Sightseeing",
+    "exclusions": "Personal Expenses"
+  },
+  {
+    "id": 6,
+    "destinationId": "kerala",
+    "name": "Kerala Complete Package",
+    "description": "7 days and 6 nights complete Kerala experience",
+    "duration": "7 days, 6 nights",
+    "price": "₹35000",
+    "inclusions": "Luxury Accommodation, All Meals, Backwater Cruise, Local Sightseeing, Ayurveda Spa",
+    "exclusions": "Personal Expenses"
+  }
+] 

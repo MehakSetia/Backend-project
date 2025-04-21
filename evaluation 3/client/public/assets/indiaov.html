@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        
+
+       
+        .parallax {
+            background-image: url('indiaov_img/image.png');
+            height: 600px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+           
+            
+        
+         
+        }
+
+        .parallax2 {
+            background-image: url('indiaov_img/i2.png');
+            height: 600px;
+            background-attachment: fixed;
+            /* background-position: center; */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax3 {
+            background-image: url('indiaov_img/i3.webp');
+            height: 600px;
+            background-attachment: fixed;
+            /* background-position: center; */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax4 {
+            background-image: url('indiaov_img/i5.webp'); /* Replace with your own image */
+            height: 600px;
+            background-attachment: fixed;
+            /* background-position: center; */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+       
+        h1,
+        h3 {
+            position: absolute;
+            color: rgb(81, 11, 11);
+        }
+
+        h1 {
+            margin-top: 18%;
+            margin-left: 35%;
+            font-size: 48px;
+        }
+
+        h3 {
+            margin-top: 21%;
+            margin-left: 30%;
+            font-size: 25px;
+            font-style: italic;
+        }
+
+       
+        .content {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f7f2e7;
+        }
+
+        .overview {
+            width: 45%;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        p {
+            font-size: 35px;
+            font-style: italic;
+        }
+
+        .txt {
+            font-size: 20px;
+        }
+
+        .img {
+            height: 60px;
+            width: 70px;
+        }
+        .footer {
+            background: #000;
+            color: white;
+            width: 100%;
+            text-align: center;
+            position: sticky;
+            font-size: 18px;
+            padding-top: 10px;
+            margin-top: 0px;
+
+
+        }
+
+        p {
+            font-weight: bold;
+        }
+        header {
+       background-color: #575757;
+       
+    }
+    
+    .navbar{
+
+        width: 20px;
+    }
+    .navbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar ul li {
+        margin-right: 20px;
+    }
+    
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 14px 20px;
+        display: block;
+    }
+    
+    .navbar a:hover {
+        background-color: #575757;
+    }
+    
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+
+    }
+    
+    .dropdown {
+        position: relative;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 25%; /* 1/4 of the page */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 2;
+        top: 100%;
+        left: 0;
+    }
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+    
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+    
+    </style>
+    <script>function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+    }
+    
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    }
+    </script>
+    <title>India Overview page</title>
+</head>
+
+<body>
+    <div> <header>
+        <nav class="navbar">
+            <ul>
+               
+                <li class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">Pages</button>
+                    <div id="dropdownMenu" class="dropdown-content">
+                        <a href="homepg.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="indiaov.html">India Overview</a>
+                        <a href="Goa.html">Goa</a>
+                        <a href="mountain.html">Mountains</a>
+                        <a href="rameshwaram.html">Rameshwaram</a>
+                        <a href="beaches.html">Beaches</a>
+                        <a href="dawarika.html">Dawarika</a>
+                        <a href="shimla.html">Shimla</a>
+                        <a href="monument.html">Monuments</a>
+                        <a href="jaipur.html">Jaipur</a>
+                        <a></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+   
+    <div class="parallax">
+        <h1>INDIAN TRAVEL GUIDE<br></h1>
+    </div>
+
+
+    <div class="content">
+        <div class="overview">
+            <p><u><b>Overview:-</b></u></p>
+            <div class="txt">
+                India is a diverse and populous country in South Asia, known for its rich history, culture, and rapidly growing economy. With over 1.4 billion people, it is the second-most populous country in the world. India gained independence from British rule in 1947 and is now a federal parliamentary democratic republic.<br><br>
+
+                The country has a mixed economy, with significant sectors in agriculture, manufacturing, and services, particularly in IT and software. India's cultural heritage includes classical music, dance, literature, and a vibrant film industry known as Bollywood.<br><br>
+
+                India faces challenges such as poverty, inequality, and environmental concerns, but it continues to make strides in technology, space exploration, and renewable energy, solidifying its role as an important global player.<br>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="parallax2"></div>
+
+    <div class="content">
+        <div class="overview">
+            <p><u><b>Geography & location:-</b></u></p>
+            <div class="txt">
+                India is located in South Asia and is the seventh-largest country by land area. It shares borders with Pakistan, China, Nepal, Bhutan, Bangladesh, and Myanmar. The country has a diverse landscape, including the Himalayan mountain range in the north, the fertile plains of the Ganges river, the Thar Desert in the west, and a long coastline along the Indian Ocean.
+            </div>
+            <div class="img"><img src="01.jpg"></div>
+        </div>
+    </div>
+
+    <div class="parallax3"></div>
+
+   
+    <div class="content">
+        <div class="overview">
+            <p><u><b>Culture:-</b></u></p>
+            <div class="txt">
+                India's culture is incredibly diverse and rich, shaped by thousands of years of history. It includes a variety of languages, religions, traditions, arts, and customs.<br><br>
+
+                <b>Languages:</b> India is home to 22 officially recognized languages, with Hindi and English being widely spoken. Each state often has its own language and dialects.<br><br>
+
+                <b>Religion:</b> India is the birthplace of major religions like Hinduism, Buddhism, Jainism, and Sikhism. It also has significant Muslim, Christian, and other religious communities.<br><br>
+
+                <b>Traditions:</b> Festivals like Diwali, Holi, Eid, and Christmas are celebrated with enthusiasm. Family plays a central role in social structure, and respect for elders is deeply ingrained.<br><br>
+
+                <b>Art and Music:</b> Indian classical music and dance forms like Bharatanatyam and Kathak are globally recognized. Bollywood, the Hindi-language film industry, is a major cultural export.<br><br>
+
+                <b>Cuisine:</b> Indian food is diverse and flavorful, with regional specialties. Spices are central, with dishes like curry, biryani, and samosas being popular.<br><br>
+
+                India's culture is a blend of the traditional and the modern, making it a vibrant and dynamic society.<br>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="parallax4"></div>
+
+  
+    <div class="content">
+        <div class="overview">
+            <p><u><b>Tourism:-</b></u></p>
+            <div class="txt">
+                India’s tourism is marked by its incredible diversity, offering something for every traveler. The country’s historical monuments, such as the forts of Rajasthan and the caves of Ajanta and Ellora, draw history enthusiasts. Adventure seekers can trek in the Himalayas, go on wildlife safaris, or enjoy water sports in Goa. India’s spiritual and wellness tourism is also prominent, with yoga retreats and meditation centers attracting visitors from around the globe. The warmth of Indian hospitality, combined with its rich culture and varied landscapes, makes India a must-visit destination.
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="footer">
+        <p>Contact us</p>
+        Email: info@trekking.com <br>
+        Phone :9823456792<br>
+        <div class="copy"> &copy; 2024 Trekking Tales. All Rights Reserved.</div>
+    </div>
+
+</body>
+
+</html>

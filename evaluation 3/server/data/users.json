@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "name": "Host User",
+    "email": "host@example.com",
+    "role": "host"
+  },
+  {
+    "id": 3,
+    "name": "Traveler User",
+    "email": "traveler@example.com",
+    "role": "traveler"
+  },
+  {
+    "name": "Aa",
+    "email": "a@gmail.com",
+    "password": "68d9e8b3160aff2e337f21eb8182f78989e335c40fc91dec645b082afbe42b908a9208d382fd75b58ed05c7cf16758601c01f861feecb7b0726ba0f356883c9c.c59d43d97b8217e14b10ed1857cf6fb1",
+    "role": "traveler",
+    "id": 4,
+    "createdAt": "2025-04-17T19:03:01.918Z"
+  },
+  {
+    "name": "Bb",
+    "email": "b@gmail.com",
+    "password": "617a9d856dddb167cc5a9657289be97ba2055569a9f7febadb2c817bf3da4b61536f70935cca35889de63e67928c4458fc192f406fbe393d1a9b27b0450a2e32.505ae6ba32bd0689c64b6a11d28f0a3f",
+    "role": "admin",
+    "id": 5,
+    "createdAt": "2025-04-17T20:47:10.628Z"
+  },
+  {
+    "name": "aa",
+    "email": "aa@gmail.com",
+    "password": "f4698f63533797681163c98ce7fd5a30c510c0cc064f9cff70a4af0c4a76c043bd2dc87e7dfb247ac1e071eda9dfb51b73bfacc5ecbdd45af0f94a691778a536.ddad779f947472c5e504541264b0a991",
+    "role": "traveler",
+    "id": 6,
+    "createdAt": "2025-04-18T07:01:07.002Z"
+  }
+]

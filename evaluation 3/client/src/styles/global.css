@@ -1,0 +1,47 @@
+/* Import for destination content styles */
+@import './destination-content.css';
+
+/* Global styles for destination content in dark mode */
+.dark .destination-content {
+  color: #e0e0e0;
+}
+
+.dark .destination-content h1,
+.dark .destination-content h2,
+.dark .destination-content h3 {
+  color: #f0f0f0;
+}
+
+.dark .destination-content p,
+.dark .destination-content li {
+  color: #d0d0d0;
+}
+
+/* Iframe styling */
+iframe {
+  border: none;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Dark mode support for iframe content */
+iframe.dark-mode-iframe {
+  filter: invert(0.9) hue-rotate(180deg);
+}
+
+/* Dark mode custom content for booking sections */
+.dark iframe body .booking-section,
+.dark iframe body .package,
+.dark iframe body .booking-form {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+/* Fix for the a in a warning */
+a > a {
+  display: inline;
+  text-decoration: none;
+  color: inherit;
+  padding: 0;
+  background: transparent;
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "title": "Jaipur Travel Guide - Jaipur Travel Guide Standard Package",
+    "startDate": "2025-04-25",
+    "endDate": "2025-05-03",
+    "guests": "2",
+    "price": "120000",
+    "notes": "Package: Jaipur Travel Guide Standard Package\nDuration: 8 days\nInclusions: Accommodation, Breakfast, Local Sightseeing",
+    "status": "confirmed",
+    "hostId": 2,
+    "userId": 6,
+    "id": 1,
+    "createdAt": "2025-04-18T08:27:06.084Z"
+  }
+]

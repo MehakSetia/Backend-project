@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Indian Monuments</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .parallax {
+            background-image: url('monuments_img/taj_hd.jpg');
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax2 {
+            background-image: url('monuments_img/gld.temple.jpeg');
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax3 {
+            background-image: url('monuments_img/br.temple.jpg');
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax4 {
+            background-image: url('monuments_img/hawa-mahal.jpg');
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax5 {
+            background-image: url('monuments_img/victor.webp');
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .content-section {
+            padding: 60px;
+            text-align: center;
+            background-color: cornsilk;
+        }
+
+        .content-section h2 {
+            font-size: 28px;
+            color: darkslategray;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-section ul li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .content-section strong {
+            color: darkgreen;
+        }
+
+        /* .footer {
+            background: #000;
+            color: white;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            padding-top: 10px;
+            margin-top: 0px;
+        } */
+
+        p {
+            font-weight: bold;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: cornsilk;
+            color: darkslategray;
+            height: 60px;
+            font-weight: bolder;
+            font-size: 40px;
+            text-align: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0px;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            margin-left: 2px;
+        }
+
+        .logoname {
+            color: #D4502C;
+            font-style: italic;
+            font-size: 25px;
+            font-weight: bold;
+            left: 5%;
+            position: absolute;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            position: relative;
+            top: -10px;
+            margin: 10px 0;
+            align-items: center;
+        
+        }
+
+        .plan-button,
+        .wishlist-button,
+        .cart-button {
+            margin-top: 10px;
+
+            font-size: 16px;
+
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            /* Change to your desired color */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .plan-details {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .cart-wishlist {
+            float: none;
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .btn {
+            background-color: #28a745;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 60px; /* Adjust to be below the header */
+            z-index: 999;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+        /* Style for the dropdown container */
+
+
+        /* Mobile view */
+        @media screen and (max-width: 768px) {
+
+            .header,
+            .parallax {
+                text-align: center;
+            }
+            .navbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar ul li {
+        margin-right: 20px;
+    }
+    
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 14px 20px;
+        display: block;
+    }
+    
+    .navbar a:hover {
+        background-color: #575757;
+    }
+    
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .dropdown {
+        position: relative;
+        width: 30px;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 25%; /* 1/4 of the page */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        top: 100%;
+        left: 0;
+    }
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+    
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+    
+            .cart-wishlist {
+                float: none;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                margin: 10px 0;
+            }
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dropdown-btn {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+
+
+    
+    <script>
+        function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+    }
+    
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    }
+        let cartCount = 0;          // Initialize cart count
+        let wishlistCount = 0;      // Initialize wishlist count
+        let cartItems = [];
+        let wishlistItems = [];
+    
+        function togglePlans(planId) {
+            const planDetails = document.getElementById(planId);
+            if (planDetails) {
+                planDetails.classList.toggle('visible');
+            }
+        }
+    
+        function addToCart(place, plan) {
+            if (!cartItems.includes(plan)) {
+                cartItems.push(plan);
+                cartCount++;
+                updateCartCount();
+                alert(plan + " for " + place + " added to cart!");
+            } else {
+                alert("This plan is already in the cart!");
+            }
+        }
+    
+        function addToWishlist(place, plan) {
+            if (!wishlistItems.includes(plan)) {
+                wishlistItems.push(plan);
+                wishlistCount++;
+                updateWishlistCount();
+                alert(plan + " for " + place + " added to wishlist!");
+            } else {
+                alert("This plan is already in the wishlist!");
+            }
+        }
+    
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+    
+        function updateWishlistCount() {
+            document.getElementById('wishlist-count').innerText = wishlistCount;
+        }
+    
+        // Dropdown toggle functionality
+        document.querySelector('.dropdown-btn').addEventListener('click', function() {
+            document.querySelector('.dropdown').classList.toggle('show');
+        });
+    
+         
+    </script>
+
+
+</head>
+
+<body>
+    <header>
+    <div class="header">
+        <div class="logo"><img src="homepg_img/logo01.png" alt="Logo"></div>
+        <div class="logoname">Trekking Tales</div>
+        Monuments of India
+        <nav class="navbar">
+            <ul>
+               
+                <li class="dropdown">
+                    <button class="dropbtn" onclick="toggleDropdown()">Pages</button>
+                    <div id="dropdownMenu" class="dropdown-content">
+                        <a href="homepg.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="indiaov.html">India Overview</a>
+                        <a href="Goa.html">Goa</a>
+                        <a href="monuments.html">Monuments</a>
+                        <a href="rameshwaram.html">Rameshwaram</a>
+                        <a href="beaches.html">Beaches</a>
+                        <a href="dawarika.html">Dawarika</a>
+                        <a href="shimla.html">Shimla</a>
+                        <a href="monuments.html">Monuments</a>
+                        <a href="jaipur.html">Jaipur</a>
+                        <a></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="cart-wishlist">
+            <button class="cart-button" onclick="showCartCount()">Cart (<span id="cart-count">0</span>)</button>
+            </div>
+            <button class="wishlist-button" onclick="showWishlistCount()">Wishlist (<span
+                    id="wishlist-count">0</span>)</button>
+
+
+        </div>
+    </div>
+
+
+</header>
+
+    <!-- Taj Mahal Section -->
+    <section id="tajMahalSection">
+        <div class="parallax"></div>
+        <div class="content-section">
+            <h2>Taj Mahal Visitor Information</h2>
+            <ul>
+                <li><strong>Location:</strong> Taj Mahal, Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh
+                    282001,
+                    India.</li>
+                <li><strong>Weather:</strong> Ideal visiting time: October to March (cooler months).</li>
+                <li><strong>Timings:</strong> Opens 30 minutes before sunrise, Closes 30 minutes after sunset, Closed on
+                    Fridays.</li>
+                <li><strong>Entry Fee:</strong> Indian Citizens: INR 50, Foreign Visitors: INR 1100, Children Below 15
+                    Years: Free entry.</li>
+                <li><strong>Best Viewing Times:</strong> Early morning at sunrise, Late evening during sunset, Full moon
+                    nights offer a special viewing opportunity.</li>
+            </ul>
+
+
+            <div class="btn-container">
+                <button class="plan-button" onclick="togglePlans('taj-plans')">View Tourist Plans</button>
+            </div>
+
+            <div id="taj-plans" class="plan-details">
+                <h3>Taj Mahal Tourist Plans</h3>
+                <ul>
+                    <li><strong>Basic Plan:</strong> ₹500 (includes access to the monument, guided tour, and food and
+                        drinks)</li>
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Taj Mahal', 'Basic Plan')">Add Basic
+                            Plan to
+                            Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Taj Mahal', 'Basic Plan')">Add Basic Plan to
+                            Cart</button>
+                    </div>
+                    <li><strong>Premium Plan:</strong> ₹1000 (includes access to the monument, guided tour, food and
+                        drinks,
+                        and special access to restricted areas)</li>
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Taj Mahal', 'Premium Plan')">Add Premium
+                            Plan to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Taj Mahal', 'Premium Plan')">Add Premium Plan to
+                            Cart</button>
+                    </div>
+                    <li><strong>Deluxe Plan:</strong> ₹2000 (includes access to the monument, guided tour, food and
+                        drinks,
+                        special access to restricted areas, and personalized tour guide)</li>
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Taj Mahal', 'Deluxe Plan')">Add Deluxe
+                            Plan
+                            to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Taj Mahal', 'Deluxe Plan')">Add Deluxe Plan to
+                            Cart</button>
+                    </div>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Golden Temple Section -->
+    <section id="goldenTempleSection">
+        <div class="parallax2"></div>
+        <div class="content-section">
+            <h2>Golden Temple Visitor Information</h2>
+            <ul>
+                <li><strong>Location:</strong> Golden Temple, Golden Temple Road, Atta Mandi, Katra Ahluwalia, Amritsar,
+                    Punjab 143006, India.</li>
+                <li><strong>Weather:</strong> Ideal visiting time: October to March (cooler months).</li>
+                <li><strong>Timings:</strong> Opens: 4:00 AM (approximately), Closes: 10:00 PM (approximately).</li>
+                <li><strong>Entry Fee:</strong> Free entry for all visitors.</li>
+                <li><strong>Best Viewing Times:</strong> Early morning during the first prayers, Evening at sunset when
+                    the
+                    temple is beautifully illuminated.</li>
+            </ul>
+            <div class="btn-container">
+                <button class="plan-button" onclick="togglePlans('golden-temple-plans')">View Tourist Plans</button>
+            </div>
+            <div id="golden-temple-plans" class="plan-details">
+                <h3>Golden Temple Tourist Plans</h3>
+                <ul>
+                    <li><strong>Basic Plan:</strong> ₹500 (includes access to the monument, guided tour, and food and
+                        drinks)</li>
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Hawa Mahal', 'Basic Plan')">Add Basic
+                            Plan
+                            to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Hawa Mahal', 'Basic Plan')">Add Basic Plan to
+                            Cart</button>
+                    </div>
+                    <li><strong>Premium Plan:</strong> ₹1000 (includes access to the monument, guided tour, food and
+                        drinks,
+                        and special access to restricted areas)</li>
+
+                    <button class="wishlist-button" onclick="addToWishlist('Hawa Mahal', 'Premium Plan')">Add Premium
+                        Plan
+                        to Wishlist</button>
+                    <button class="cart-button" onclick="addToCart('Hawa Mahal', 'Premium Plan')">Add Premium Plan to
+                        Cart</button>
+
+                    <li><strong>Deluxe Plan:</strong> ₹2000 (includes access to the monument, guided tour, food and
+                        drinks,
+                        special access to restricted areas, and personalized tour guide)</li>
+
+                    <div class="btn-container">
+
+                        <button class="wishlist-button" onclick="addToWishlist('Golden Temple', 'Basic Plan')">Add Basic
+                            Plan to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Golden Temple', 'Basic Plan')">Add Basic Plan to
+                            Cart</button>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+    <!-- Brihadishwara Temple Section -->
+    <section id="brihadishwaraSection">
+        <div class="parallax3"></div>
+        <div class="content-section">
+            <h2>Brihadishwara Temple Visitor Information</h2>
+            <ul>
+                <li><strong>Location:</strong> Brihadishwara Temple, South Main Street, Balaganapathy Nagar, Thanjavur,
+                    Tamil Nadu 613007, India.</li>
+                <li><strong>Weather:</strong> Ideal visiting time: October to March (cooler months).</li>
+                <li><strong>Timings:</strong> Opens: 6:00 AM, Closes: 8:30 PM, Open every day of the week.</li>
+                <li><strong>Entry Fee:</strong> Free entry for all visitors.</li>
+                <li><strong>Best Viewing Times:</strong> Early morning for a serene experience, Evening at sunset when
+                    the
+                    temple is beautifully illuminated.</li>
+            </ul>
+
+
+
+            <div class="btn-container">
+
+                <button class="plan-button" onclick="togglePlans('brihadishwara-temple-plans')">View Tourist
+                    Plans</button>
+            </div>
+
+
+            <div id="brihadishwara-temple-plans" class="plan-details">
+                <h3>Brihadishwara Temple Tourist Plans</h3>
+                <ul>
+                    <li><strong>Basic Plan:</strong> ₹500 (includes access to the monument, guided tour, and food and
+                        drinks)</li>
+
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Golden Temple', 'Basic Plan')">Add Basic
+                            Plan to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Golden Temple', 'Basic Plan')">Add Basic Plan to
+                            Cart</button>
+                    </div>
+
+                    <li><strong>Premium Plan:</strong> ₹1000 (includes access to the monument, guided tour, food and
+                        drinks,
+                        and special access to restricted areas)</li>
+
+                    <button class="wishlist-button" onclick="addToWishlist('Golden Temple', 'Premium Plan')">Add Premium
+                        Plan to Wishlist</button>
+                    <button class="cart-button" onclick="addToCart('Golden Temple', 'Premium Plan')">Add Premium Plan to
+                        Cart</button>
+
+                    <li><strong>Deluxe Plan:</strong> ₹2000 (includes access to the monument, guided tour, food and
+                        drinks,
+                        special access to restricted areas, and personalized tour guide)</li>
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Golden Temple', 'Deluxe Plan')">Add
+                            Deluxe
+                            Plan to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Golden Temple', 'Deluxe Plan')">Add Deluxe Plan
+                            to
+                            Cart</button>
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Hawa Mahal Section -->
+    <section id="hawaMahalSection">
+        <div class="parallax4"></div>
+        <div class="content-section">
+            <h2>Hawa Mahal Visitor Information</h2>
+            <ul>
+                <li><strong>Location:</strong> Hawa Mahal, Hawa Mahal Road, Badi Choupad, J.D.A. Market, Pink City,
+                    Jaipur, Rajasthan 302002, India.</li>
+                <li><strong>Weather:</strong> Ideal visiting time: October to March (cooler months).</li>
+                <li><strong>Timings:</strong> Opens: 9:00 AM, Closes: 5:00 PM, Open every day of the week.</li>
+                <li><strong>Entry Fee:</strong> Indian Citizens: INR 50, Foreign Visitors: INR 200, Children Below 15
+                    Years: Free entry.</li>
+                <li><strong>Best Viewing Times:</strong> Early morning for fewer crowds and soft lighting, Late
+                    afternoon to witness the palace's façade glowing in the setting sun.</li>
+            </ul>
+
+            <div class="btn-container">
+                <button class="plan-button" onclick="togglePlans('Hawa-Mahal-plans')">View Tourist Plans</button>
+            </div>
+
+
+            <div id="Hawa-Mahal-plans" class="plan-details">
+                <h3>Hawa Mahal Tourist Plans</h3>
+                <ul>
+                    <li><strong>Basic Plan:</strong> ₹500 (includes access to the monument, guided tour, and food and
+                        drinks)</li>
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Hawa Mahal', 'Basic Plan')">Add Basic
+                            Plan to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Hawa Mahal', 'Basic Plan')">Add Basic Plan to
+                            Cart</button>
+                    </div>
+                    <li><strong>Premium Plan:</strong> ₹1000 (includes access to the monument, guided tour, food and
+                        drinks, and special access to restricted areas)</li>
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Hawa Mahal', 'Premium Plan')">Add
+                            Premium Plan to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Hawa Mahal', 'Premium Plan')">Add Premium Plan
+                            to Cart</button>
+                    </div>
+                    <li><strong>Deluxe Plan:</strong> ₹2000 (includes access to the monument, guided tour, food and
+                        drinks, special access to restricted areas, and personalized tour guide)</li>
+                    <div class="btn-container">
+                        <button class="wishlist-button" onclick="addToWishlist('Hawa Mahal', 'Deluxe Plan')">Add Deluxe
+                            Plan to Wishlist</button>
+                        <button class="cart-button" onclick="addToCart('Hawa Mahal', 'Deluxe Plan')">Add Deluxe Plan to
+                            Cart</button>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Victoria Memorial Section -->
+
+    <section id="victoriaSection">
+        <div class="parallax5"></div>
+        <div class="content-section">
+            <h2>Victoria Memorial Visitor Information</h2>
+            <ul>
+                <li><strong>Location:</strong> Victoria Memorial, 1, Queens Way, Maidan, Kolkata, West Bengal 700071,
+                    India.</li>
+                <li><strong>Weather:</strong> Ideal visiting time: October to March (cooler months).</li>
+                <li><strong>Timings:</strong> Museum Hours: 10:00 AM to 5:00 PM (Closed on Mondays and National
+                    Holidays), Garden Hours: 5:30 AM to 6:15 PM.</li>
+                <li><strong>Entry Fee:</strong> Indian Citizens: INR 30 (Gardens), INR 20 (Museum), Foreign Visitors:
+                    INR 500 (Museum and Gardens combined).</li>
+                <li><strong>Best Viewing Times:</strong> Early morning for a peaceful garden visit, Evening for a stroll
+                    through the illuminated gardens and view of the lit-up monument.</li>
+            </ul>
+        </div>
+
+        <div class="btn-container">
+
+            <button class="plan-button" onclick="togglePlans('victoria-memorial-plans')">View Tourist Plans</button>
+        </div>
+        <div id="victoria-memorial-plans" class="plan-details">
+            <h3>Victoria Memorial Tourist Plans</h3>
+            <ul>
+                <li><strong>Basic Plan:</strong> ₹500 (includes access to the monument, guided tour, and food and
+                    drinks)</li>
+                <div class="btn-container">
+                    <button class="wishlist-button" onclick="addToWishlist('Victoria Memorial', 'Basic Plan')">Add Basic
+                        Plan to Wishlist</button>
+                    <button class="cart-button" onclick="addToCart('Victoria Memorial', 'Basic Plan')">Add Basic Plan to
+                        Cart</button>
+                </div>
+                <li><strong>Premium Plan:</strong> ₹1000 (includes access to the monument, guided tour, food and drinks,
+                    and special access to restricted areas)</li>
+                <button class="wishlist-button" onclick="addToWishlist('Victoria Memorial', 'Premium Plan')">Add Premium
+                    Plan to Wishlist</button>
+                <button class="cart-button" onclick="addToCart('Victoria Memorial', 'Premium Plan')">Add Premium Plan to
+                    Cart</button>
+
+                <li><strong>Deluxe Plan:</strong> ₹2000 (includes access to the monument, guided tour, food and drinks,
+                    special access to restricted areas, and personalized tour guide)</li>
+                <div class="btn-container">
+                    <button class="wishlist-button" onclick="addToWishlist('Victoria Memorial', 'Deluxe Plan')">Add
+                        Deluxe Plan to Wishlist</button>
+                    <button class="cart-button" onclick="addToCart('Victoria Memorial', 'Deluxe Plan')">Add Deluxe Plan
+                        to Cart</button>
+                </div>
+            </ul>
+        </div>
+    </section>
+
+
+    <div class="footer">
+        <p>Contact us</p>
+        Email: info@trekking.com <br>
+        Phone : 9823456792<br>
+        <div class="copy"> &copy; 2024 Trekking Tales. All Rights Reserved.</div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destination Viewer</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .container {
+      height: 100vh;
+      overflow: hidden;
+    }
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 4px solid #f3f3f3;
+      border-top-color: #3498db;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+  </div>
+  <div id="container" class="container" style="display: none;">
+    <iframe id="destination-frame" src=""></iframe>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the destination from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const destination = urlParams.get('destination');
+      
+      if (!destination) {
+        document.body.innerHTML = '<div style="padding: 20px; text-align: center;"><h1>Error</h1><p>No destination specified</p></div>';
+        return;
+      }
+      
+      const iframe = document.getElementById('destination-frame');
+      const loading = document.getElementById('loading');
+      const container = document.getElementById('container');
+      
+      // Set the iframe source
+      iframe.src = `/assets/${destination}`;
+      
+      // Hide loading indicator when iframe loads
+      iframe.onload = function() {
+        loading.style.display = 'none';
+        container.style.display = 'block';
+      };
+      
+      // Handle errors
+      iframe.onerror = function() {
+        document.body.innerHTML = '<div style="padding: 20px; text-align: center;"><h1>Error</h1><p>Failed to load destination</p></div>';
+      };
+    });
+  </script>
+</body>
+</html>

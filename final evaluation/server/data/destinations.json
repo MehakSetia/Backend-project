@@ -1,0 +1,152 @@
+[
+  {
+    "id": "shimla",
+    "name": "Shimla",
+    "description": "The Queen of Hills, Shimla is a beautiful hill station in Himachal Pradesh known for its colonial architecture, scenic views, and pleasant climate.",
+    "image": "/images/shimla.jpg",
+    "highlights": [
+      "The Ridge",
+      "Mall Road",
+      "Jakhu Temple",
+      "Christ Church",
+      "Kufri"
+    ],
+    "bestTimeToVisit": "March to June, September to November",
+    "averagePrice": "₹2000-₹5000 per night"
+  },
+  {
+    "id": "goa",
+    "name": "Goa",
+    "description": "India's party capital, Goa is famous for its beaches, nightlife, and Portuguese heritage.",
+    "image": "/images/goa.jpg",
+    "highlights": [
+      "Baga Beach",
+      "Old Goa Churches",
+      "Dudhsagar Falls",
+      "Fort Aguada",
+      "Anjuna Flea Market"
+    ],
+    "bestTimeToVisit": "November to February",
+    "averagePrice": "₹1500-₹4000 per night"
+  },
+  {
+    "id": "kerala",
+    "name": "Kerala",
+    "description": "God's Own Country, Kerala is known for its backwaters, beaches, and rich cultural heritage.",
+    "image": "/images/kerala.jpg",
+    "highlights": [
+      "Alleppey Backwaters",
+      "Munnar Tea Gardens",
+      "Kochi Fort",
+      "Kovalam Beach",
+      "Periyar Wildlife Sanctuary"
+    ],
+    "bestTimeToVisit": "October to March",
+    "averagePrice": "₹2500-₹6000 per night"
+  },
+  {
+    "id": "rajasthan",
+    "name": "Rajasthan",
+    "description": "The Land of Kings, Rajasthan is famous for its majestic forts, palaces, and vibrant culture.",
+    "image": "/images/rajasthan.jpg",
+    "highlights": [
+      "Jaipur City Palace",
+      "Udaipur Lake Palace",
+      "Jaisalmer Fort",
+      "Jodhpur Mehrangarh Fort",
+      "Pushkar Camel Fair"
+    ],
+    "bestTimeToVisit": "October to March",
+    "averagePrice": "₹3000-₹8000 per night"
+  },
+  {
+    "id": "ladakh",
+    "name": "Ladakh",
+    "description": "The Land of High Passes, Ladakh offers breathtaking landscapes, Buddhist monasteries, and adventure activities.",
+    "image": "/images/ladakh.jpg",
+    "highlights": [
+      "Pangong Lake",
+      "Nubra Valley",
+      "Leh Palace",
+      "Hemis Monastery",
+      "Khardung La Pass"
+    ],
+    "bestTimeToVisit": "May to September",
+    "averagePrice": "₹2000-₹5000 per night"
+  },
+  {
+    "id": "rameshwaram",
+    "name": "Rameshwaram",
+    "description": "A sacred island town in Tamil Nadu, known for its Ramanathaswamy Temple and pristine beaches.",
+    "image": "/images/rameshwaram.jpg",
+    "highlights": [
+      "Ramanathaswamy Temple",
+      "Dhanushkodi Beach",
+      "Pamban Bridge",
+      "Ariyaman Beach",
+      "Gandhamadhana Parvatham"
+    ],
+    "bestTimeToVisit": "October to March",
+    "averagePrice": "₹1500-₹4000 per night"
+  },
+  {
+    "id": "varanasi",
+    "name": "Varanasi",
+    "description": "One of the oldest living cities in the world, Varanasi is a spiritual hub on the banks of the Ganges.",
+    "image": "/images/varanasi.jpg",
+    "highlights": [
+      "Kashi Vishwanath Temple",
+      "Ganga Aarti",
+      "Sarnath",
+      "Dashashwamedh Ghat",
+      "Banaras Hindu University"
+    ],
+    "bestTimeToVisit": "October to March",
+    "averagePrice": "₹1000-₹3000 per night"
+  },
+  {
+    "id": "darjeeling",
+    "name": "Darjeeling",
+    "description": "Famous for its tea gardens, toy train, and stunning views of the Kanchenjunga mountain range.",
+    "image": "/images/darjeeling.jpg",
+    "highlights": [
+      "Tiger Hill",
+      "Darjeeling Himalayan Railway",
+      "Batasia Loop",
+      "Peace Pagoda",
+      "Tea Gardens"
+    ],
+    "bestTimeToVisit": "March to May, September to November",
+    "averagePrice": "₹2000-₹5000 per night"
+  },
+  {
+    "id": "munnar",
+    "name": "Munnar",
+    "description": "A picturesque hill station in Kerala, known for its sprawling tea plantations and cool climate.",
+    "image": "/images/munnar.jpg",
+    "highlights": [
+      "Tea Gardens",
+      "Eravikulam National Park",
+      "Mattupetty Dam",
+      "Echo Point",
+      "Top Station"
+    ],
+    "bestTimeToVisit": "September to May",
+    "averagePrice": "₹2000-₹5000 per night"
+  },
+  {
+    "id": "andaman",
+    "name": "Andaman & Nicobar",
+    "description": "A tropical paradise with pristine beaches, coral reefs, and rich marine life.",
+    "image": "/images/andaman.jpg",
+    "highlights": [
+      "Radhanagar Beach",
+      "Cellular Jail",
+      "Ross Island",
+      "Elephant Beach",
+      "Baratang Island"
+    ],
+    "bestTimeToVisit": "October to May",
+    "averagePrice": "₹3000-₹7000 per night"
+  }
+] 

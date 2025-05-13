@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Goa Trip Planner - Goa Beach Package",
+    "startDate": "2025-05-09",
+    "endDate": "2025-05-10",
+    "guests": "2",
+    "price": "5000",
+    "notes": "Package: Goa Beach Package\nDuration: 1 days\nInclusions: Beach Resort Stay, Breakfast, Water Sports, Local Sightseeing",
+    "status": "confirmed",
+    "hostId": 2,
+    "userId": 7,
+    "id": 1,
+    "createdAt": "2025-05-09T16:45:33.468Z"
+  },
+  {
+    "title": "Jaipur Travel Guide - Jaipur Travel Guide Standard Package",
+    "startDate": "2025-05-24",
+    "endDate": "2025-05-31",
+    "guests": "2",
+    "price": "35000",
+    "notes": "Package: Jaipur Travel Guide Standard Package\nDuration: 7 days\nInclusions: Accommodation, Breakfast, Local Sightseeing",
+    "status": "confirmed",
+    "hostId": 2,
+    "userId": 7,
+    "id": 2,
+    "createdAt": "2025-05-09T16:48:03.292Z"
+  },
+  {
+    "hostId": 2,
+    "title": "Package Booking",
+    "startDate": "2025-05-17",
+    "endDate": "2025-05-19",
+    "guests": "2",
+    "price": "10000",
+    "notes": "Package: undefined\nDuration: 2 days\nInclusions: undefined",
+    "status": "confirmed",
+    "userId": 7,
+    "id": 3,
+    "createdAt": "2025-05-09T16:56:30.214Z"
+  }
+]

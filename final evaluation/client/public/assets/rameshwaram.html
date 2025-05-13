@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rameshwaram Tour Packages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+     <style>
+        /* Add CSS styles */
+
+body {
+    font-family: 'Cinzel', serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    
+    /* background-color: crimson; */
+    
+}
+h1, h2, h3 {
+    font-family: 'Cinzel', serif; /* Keep headings in Cinzel for consistency */
+    
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+h1 {
+    font-size: 3rem; /* Larger font size for main headings */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+h2 {
+    font-size: 2.5rem; /* Increase size for subheadings */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+h3 {
+    font-size: 2rem; /* Increase size for package headings */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+.guide-header {
+    background-image: url('rameshwaram_img/r1.png'); /* Set the correct path to your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    background-attachment: fixed; /* Parallax effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.guide-header .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+    padding: 20px;
+    width: 100%;
+}
+
+.guide-header h1 {
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.guide-header p {
+    color: #f1f1f1;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+.navbar {
+            background-color: #333;
+            padding: 10px;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .navbar ul li {
+            margin-right: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 25%; /* 1/4 of the page */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown-content a {
+            color: palevioletred;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+#package-teaser{
+    background-color: #ffd700; 
+    padding: 20px; 
+    text-align: center; 
+    font-family: 'Georgia', serif; color: #333;
+}
+a{
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    border-radius: 5px;
+}
+.image-container {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    overflow: hidden; /* Prevent overflow */
+    position: relative; /* Positioning context for the image */
+}
+
+.image-container img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove space below the image */
+    background-attachment: fixed;
+    
+}
+
+.section {
+    position: relative;
+    margin: 20px 0; /* Space between sections */
+}
+
+.section-image {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white; /* Text color */
+    padding: 20px; /* Padding around text */
+    text-align: center; /* Center text */
+}
+
+.text-overlay h2 {
+    margin: 0 0 10px 0; /* Space below heading */
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+    background-color: #fff; /* Set a contrasting background to make the button pop */
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Add shadow for a floating effect */
+    margin: 40px auto;
+    max-width: 80%;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.package-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    background: #f9f9f9;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.package-card h3 {
+    margin: 0 0 10px 0;
+}
+
+.package-card button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.package-card button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .text-overlay {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+    }
+
+    .modal-content {
+        width: 90%; /* Make modal content responsive */
+    }
+}
+
+
+.container h1 {
+    font-size: 2.5rem;
+    color: crimson;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.open-modal-btn {
+    background-color: #3498db; /* Use a bold color for the button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4); /* Add shadow to make the button stand out */
+}
+
+.open-modal-btn:hover {
+    background-color: #2980b9; /* Slightly different hover color for interactivity */
+    transform: scale(1.1); /* Scale up the button on hover */
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.6);
+}
+
+.open-modal-btn:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+.open-modal-btn:active {
+    transform: scale(0.98); /* Slight shrink when clicked */
+}
+/* .cart-wishlist {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
+        }
+        .cart-wishlist div {
+            position: relative;
+        }
+        .cart-wishlist .count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .cart-modal, .wishlist-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+        .cart-modal-content, .wishlist-modal-content {
+            background-color: #fff;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+        }
+        .cart-modal-content h2, .wishlist-modal-content h2 {
+            margin-top: 0; 
+        } */
+
+        .cart-wishlist {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-wishlist button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cart-wishlist button:hover {
+    background-color: #444;
+}
+.cart-modal, .wishlist-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cart-modal-content, .wishlist-modal-content {
+    padding: 20px;
+}
+.cart-modal-content h2, .wishlist-modal-content h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 2rem;
+    }
+
+    .open-modal-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
+}
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-pop {
+    animation: pop 0.5s ease-out;
+}
+
+     </style>
+         <script>
+            function toggleDropdown() {
+                const dropdown = document.getElementById("dropdownMenu");
+                dropdown.style.display = ( dropdown.style.display === "block") ? "none" : "block";
+            }
+            window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.style.display === "block") {
+                            openDropdown.style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li class="dropdown">
+                        <button class="dropbtn" onclick="toggleDropdown()">Pages</button>
+                        <div id="dropdownMenu" class="dropdown-content">
+                            <a href="homepg.html">Home</a>
+                            <a href="about.html">About</a>
+                            <a href="indiaov.html">India Overview</a>
+                            <a href="Goa.html">Goa</a>
+                            <a href="monuments.html">Monuments</a>
+                            <a href="rameshwaram.html">Rameshwaram</a>
+                            <a href="beaches.html">Beaches</a>
+                            <a href="dawarika.html">Dawarika</a>
+                            <a href="shimla.html">Shimla</a>
+                            <a href="monuments.html">Monuments</a>
+                            <a href="jaipur.html">Jaipur</a>
+                            <a></a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+</head>
+
+    <header class="guide-header">
+        <div class="overlay">
+            <h1>Rameshwaram Travel Guide</h1>
+            <p>Rameshwaram, a sacred island, is renowned for its ancient temples and stunning beaches. Experience the spiritual and cultural essence of this enchanting destination.</p>
+        </div>
+    </header>
+    <!-- <section id="package-teaser">
+        <h2>Discover Our Exclusive Tour Packages</h2>
+        <p>Explore Small, Medium, and Deluxe packages with various options for a complete cultural experience.</p>
+        <a href="javascript:void(0);" class="open-modal-btn" onclick="openModal('Rameshwaram')">See Tour Packages</a>
+    </section> -->
+    <div class="cart-wishlist">
+        <div>
+            <button id="wishlistButton" onclick="toggleWishlistModal()">Wishlist <span id="wishlistCount" class="count">0</span></button>
+        </div>
+        <div>
+            <button id="cartButton" onclick="toggleCartModal()">Cart <span id="cartCount" class="count">0</span></button>
+        </div>
+    </div>
+
+    <div id="wishlistModal" class="wishlist-modal">
+        <div class="wishlist-modal-content">
+            <span class="close" onclick="toggleWishlistModal()">&times;</span>
+            <h2>Your Wishlist</h2>
+            <div id="wishlistContents"></div>
+        </div>
+    </div>
+
+    <section id="package-teaser">
+        <h2>Discover Our Exclusive Tour Packages</h2>
+        <p>Explore Small, Medium, and Deluxe packages with various options for a complete cultural experience.</p>
+        <button class="open-modal-btn" onclick="openModal('Rameshwaram')">See Tour Packages</button>
+    </section>
+   <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Tour Packages</h2>
+            <div id="packages"></div>
+        </div>
+    </div>
+    
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close" onclick="toggleCartModal()">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartContents"></div>
+        </div>
+    </div>
+    <div class="section">
+        <img src="rameshwaram_img/r2.png" alt="Religious Importance" class="section-image">
+        <div class="text-overlay">
+            <h2>Religious Importance</h2>
+            <p>Rameshwaram is one of the holiest pilgrimage sites in Hinduism and is considered one of the Char Dham (four sacred abodes). <br>It is believed to be the place where Lord Rama constructed a bridge (Rama Setu) to Lanka to rescue his wife, Sita, from the demon king Ravana. <br>The Ramanathaswamy Temple, dedicated to Lord Shiva, is a major pilgrimage destination where devotees come to seek blessings and perform rituals.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <img src="rameshwaram_img/r3.png" alt="Architectural Marvel" class="section-image">
+        <div class="text-overlay">
+            <h2>Architectural Marvel</h2>
+            <p>The Ramanathaswamy Temple is famous for its magnificent architecture, featuring intricately carved pillars, towering gopurams <br>(temple towers), and expansive corridors. It is known for having the longest corridor among Hindu temples in India, with 1,200 meters of pillared halls.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <img src="rameshwaram_img/r5.png" alt="Cultural Heritage" class="section-image">
+        <div class="text-overlay">
+            <h2>Cultural Heritage</h2>
+            <p>Rameshwaram is rich in Tamil culture and traditions. Festivals such as Mahashivaratri and Navaratri are celebrated with great fervor. <br>The town is also known for its traditional music, dance forms, and local crafts, reflecting the vibrant cultural tapestry of Tamil Nadu.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <img src="rameshwaram_img/r6.png" alt="Natural Beauty" class="section-image">
+        <div class="text-overlay">
+            <h2>Natural Beauty</h2>
+            <p>The town boasts stunning landscapes, pristine beaches, and beautiful coastal views. Dhanushkodi, located at the southeastern tip of <br>Pamban Island, is a ghost town known for its scenic beauty and historical significance. The ruins of old churches and temples, along with<br> untouched beaches, make it a popular spot for tourists and nature lovers.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <img src="rameshwaram_img/r4.png" alt="Tourism and Accessibility" class="section-image">
+        <div class="text-overlay">
+            <h2>Tourism and Accessibility</h2>
+            <p>Rameshwaram is well-connected by road and rail, making it accessible for pilgrims and tourists from various parts of India. The town serves as a gateway <br>to the Gulf of Mannar Marine National Park, known for its rich biodiversity and coral reefs.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <img src="rameshwaram_img/r7.png" alt="Mythological Significance" class="section-image">
+        <div class="text-overlay">
+            <h2>Mythological Significance</h2>
+            <p>According to Hindu mythology, Rameshwaram is associated with the epic Ramayana. It is believed that after defeating Ravana, Lord Rama worshipped <br>Lord Shiva here to absolve himself of the sin of killing a Brahmin (Ravana). This aspect of mythology adds to the spiritual allure of the town.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Explore Rameshwaram Tour Packages</h1>
+        <button class="open-modal-btn" onclick="openModal('Rameshwaram')">View Rameshwaram Packages</button>
+    </div>
+
+    <div id="packageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="packageDetails"></div>
+            
+            
+
+        </div>
+    </div>
+    <!-- <div class="container">
+        <h1>Explore Rameshwaram Tour Packages</h1>
+        <button class="open-modal-btn" onclick="openModal('Rameshwaram')">View Rameshwaram Packages</button> -->
+        
+
+    </div>
+
+    <!-- <div id="packageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="packageDetails"></div>
+        </div>
+    </div> -->
+
+    <!-- <script src="rameshwaram.js"></script> -->
+     <script>
+        const packages = [
+            {
+                name: "Small Package",
+                description: "2 Days & 1 Night Stay, includes breakfast.",
+                details: "Transportation: Train, Class: Sleeper, Timings: 6 AM - 8 PM, Accommodation: Local Hotel, Room Type: Standard, Facilities: Wi-Fi, Room Service.",
+                price: 2000
+            },
+            {
+                name: "Medium Package",
+                description: "3 Days & 2 Nights Stay, includes breakfast and dinner.",
+                details: "Transportation: Flight, Class: Economy, Timings: 8 AM - 10 PM, Accommodation: Comfort Inn, Room Type: Deluxe, Facilities: Wi-Fi, Breakfast, Pool.",
+                price: 5000
+            },
+            {
+                name: "Deluxe Package",
+                description: "5 Days & 4 Nights Stay, includes all meals and guided tours.",
+                details: "Transportation: Luxury Coach, Class: Executive, Timings: Flexible, Accommodation: 5-Star Hotel, Room Type: Suite, Facilities: Wi-Fi, Spa, Guided Tours.",
+                price: 10000
+            }
+        ];
+
+        const cart = [];
+        const wishlist = [];
+
+        function displayPackages() {
+            const packagesContainer = document.getElementById('packages');
+            packagesContainer.innerHTML = ''; // Clear previous packages
+            packages.forEach((pkg, index) => {
+                const packageDiv = document.createElement('div');
+                packageDiv.className = 'package-card';
+                packageDiv.innerHTML = `
+                    <h3>${pkg.name}</h3>
+                    <p>${pkg.description}</p>
+                    <p><strong>Details:</strong> ${pkg.details}</p>
+                    <button onclick="addToCart(${index})">Add to Cart</button>
+                    <button onclick="addToWishlist(${index})">Add to Wishlist</button>
+                `;
+                packagesContainer.appendChild(packageDiv);
+            });
+        }
+        function toggleWishlistModal() {
+            const wishlistModal = document.getElementById('wishlistModal');
+            const isVisible = wishlistModal.style.display === 'block';
+            wishlistModal.style.display = isVisible ? 'none' : 'block';
+            displayWishlist();
+        }
+
+        function toggleCartModal() {
+            const cartModal = document.getElementById('cartModal');
+            const isVisible = cartModal.style.display === 'block';
+            cartModal.style.display = isVisible ? 'none' : 'block';
+            displayCart();
+        }
+
+        function addToCart(index) {
+            const packageToAdd = packages[index];
+            cart.push(packageToAdd);
+            updateCartCount();
+            alert(`${packageToAdd.name} has been added to your cart!`); 
+        }
+
+        function addToWishlist(index) {
+            const packageToAdd = packages[index];
+            wishlist.push(packageToAdd);
+            updateWishlistCount();
+            alert(`${packageToAdd.name} has been added to your wishlist!`);
+        }
+
+        function updateCartCount() {
+            document.getElementById('cartCount').textContent = cart.length;
+        }
+
+        function updateWishlistCount() {
+            document.getElementById('wishlistCount').textContent = wishlist.length;
+        }
+
+        function displayCart() {
+            const cartContents = document.getElementById('cartContents');
+            cartContents.innerHTML = ''; // Clear previous contents
+            if (cart.length === 0) {
+                cartContents.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+            cart.forEach(pkg => {
+                const pkgDiv = document.createElement('div');
+                pkgDiv.innerHTML = `<h4>${pkg.name}</h4><p>${pkg.description}</p>`;
+                cartContents.appendChild(pkgDiv);
+            });
+        }
+
+        function displayWishlist() {
+            const wishlistContents = document.getElementById('wishlistContents');
+            wishlistContents.innerHTML = ''; // Clear previous contents
+            if (wishlist.length === 0) {
+                wishlistContents.innerHTML = '<p>Your wishlist is empty.</p>';
+                return;
+            }
+            wishlist.forEach(pkg => {
+                const pkgDiv = document.createElement('div');
+                pkgDiv.innerHTML = `<h4>${pkg.name}</h4><p>${pkg.description}</p>`;
+                wishlistContents.appendChild(pkgDiv);
+            });
+        }
+
+        // Initialize packages display on page load
+        displayPackages();
+    
+        function openModal(beach) {
+    
+    document.getElementById('modalTitle').innerText =` ${beach} Tour Packages`;
+    document.getElementById('packageDetails').innerHTML = getPackageDetails(beach);
+    document.getElementById('packageModal').style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById('packageModal').style.display = "none";
+}
+
+function getPackageDetails(beach) {
+    const packages = {
+        'Rameshwaram': `
+            <div class="package-card">
+                <h3>Small Rameshwaram Package</h3>
+                <p>Perfect for a short spiritual journey.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 3 days, 2 nights</li>
+                    <li><strong>Meals:</strong> Breakfast included</li>
+                    <li><strong>Transport:</strong> Train (2nd class)</li>
+                    <li><strong>Accommodation:</strong> Temple guest house</li>
+                    <li><strong>Attractions:</strong> Rameshwaram Temple Darshan, Dhanushkodi beach visit</li>
+                </ul>
+                <button onclick="addToCart(0)">Add to Cart</button>
+                <button onclick="addToWishlist(0)">Add to Wishlist</button>
+            </div>
+            <div class="package-card">
+                <h3>Medium Rameshwaram Package</h3>
+                <p>Experience the spirituality and beauty of Rameshwaram.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 5 days, 4 nights</li>
+                    <li><strong>Meals:</strong> Breakfast and Dinner</li>
+                    <li><strong>Transport:</strong> Flight (Economy Class)</li>
+                    <li><strong>Accommodation:</strong> Hotel with beach view</li>
+                    <li><strong>Attractions:</strong> Temple Darshan, Pamban Bridge visit, Dhanushkodi, Adam’s Bridge</li>
+                </ul>
+                <button onclick="addToCart(1)">Add to Cart</button>
+                <button onclick="addToWishlist(1)">Add to Wishlist</button>
+            </div>
+            <div class="package-card">
+                <h3>Deluxe Rameshwaram Package</h3>
+                <p>Explore Rameshwaram with all luxury and comfort.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 7 days, 6 nights</li>
+                    <li><strong>Meals:</strong> All meals included</li>
+                    <li><strong>Transport:</strong> Flight (Business Class)</li>
+                    <li><strong>Accommodation:</strong> Luxury beachside resort</li>
+                    <li><strong>Attractions:</strong> Temple Darshan, Private guide, Dhanushkodi, Water sports</li>
+                </ul>
+                <button onclick="addToCart(2)">Add to Cart</button>
+                <button onclick="addToWishlist(2)">Add to Wishlist</button>
+            </div>
+        `,
+    };
+    return packages[beach] || '<p>No packages available for this location.</p>';
+}
+document.addEventListener("DOMContentLoaded", function() {
+    const button = document.querySelector('.open-modal-btn');
+    button.classList.add('animate-pop');
+});
+
+     </script>
+</body>
+</html>
